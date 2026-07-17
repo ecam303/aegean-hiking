@@ -1,0 +1,50 @@
+/* Temporary: waypoint nav v3 tweaks */
+.waypoint-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+}
+.waypoint-nav__item {
+  display: block;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 0.45rem 0;
+  cursor: pointer;
+  width: 100%;
+}
+.waypoint-nav__item:focus { outline: none; }
+.waypoint-nav__item span { display: block; line-height: 1; }
+.waypoint-nav__item span:first-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--ink);
+}
+.waypoint-nav__order {
+  font-family: var(--font-cond);
+  font-size: 0.75rem;
+  color: var(--moss);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 0.12rem;
+}
+.waypoint-nav__item.active {
+  background: var(--paper);
+  box-shadow: inset 3px 0 0 var(--rust);
+}
+
+/* Layout shell for the trail pages */
+.trail-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+.trail-sidebar { padding: 0.2rem 0.6rem; }
+.trail-main { display: flex; flex-direction: column; gap: 0.9rem; }
+.waypoint-nav__item { white-space: normal; word-break: break-word; }

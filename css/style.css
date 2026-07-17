@@ -5,8 +5,8 @@
    ink on parchment, one burnt-ochre accent, deep sea-night blue.
    ============================================================ */
 :root {
-  --paper: #F6F1E7;
-  --paper-dim: #EAE1D0;
+  --paper: #FFFFFF;
+  --paper-dim: #F4F5F6;
   --ink: #1A1613;
   --ink-soft: #4A4238;
   --sea: #0F2A38;
@@ -468,6 +468,26 @@ main {
   border: 1px solid var(--paper-dim);
 }
 
+.location-panel {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--paper-dim);
+  display: grid;
+  gap: 0.35rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.location-panel strong {
+  display: inline-block;
+  min-width: 8rem;
+  color: var(--ink);
+}
+
+.location-panel span {
+  display: inline-block;
+}
+
 /* Leaflet popup theming */
 .leaflet-popup-content-wrapper {
   border-radius: var(--radius);
@@ -537,7 +557,7 @@ main {
 :root {
   --wine: #7B2456;
   --wine-dark: #5C1A40;
-  --offwhite: #F6F4F1;
+  --offwhite: #FFFFFF;
   --text-gray: #767676;
   --line: #E7E3DC;
   --font-sans: 'Inter', -apple-system, sans-serif;
@@ -636,6 +656,28 @@ main {
   overflow: hidden;
 }
 
+.nav-v3 {
+  background-color: transparent;
+  background-image: linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.86)), url('../assets/boats_all.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.nav-v3__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.nav-v3::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.3);
+  pointer-events: none;
+}
+
 /* Decorative sea texture stand-in for a hero photograph — swap this
    whole rule's background for background-image: url('assets/your-hero.jpg')
    once you have a rights-cleared photo. */
@@ -678,7 +720,7 @@ main {
 
 /* Section shell */
 .section-v3 { padding: 5rem 1.5rem; }
-.section-v3.alt { background: var(--offwhite); }
+.section-v3.alt { background: #FFFFFF; }
 
 .section-v3__inner { max-width: 1180px; margin: 0 auto; }
 
@@ -1169,6 +1211,14 @@ main {
   color: #1A1613;
   font-family: var(--font-sans);
   font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.gallery__attribution {
+  margin: 0.2rem 1rem 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  color: rgba(26, 22, 19, 0.62);
   line-height: 1.4;
 }
 

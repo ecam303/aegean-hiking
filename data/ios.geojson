@@ -4,12 +4,16 @@
     "island": "Ios",
     "trailName": "The Terraces of Skarkos",
     "region": "Cyclades",
-    "center": [25.2805, 36.7210],
+    "center": [
+      25.2805,
+      36.721
+    ],
     "zoom": 15,
     "summary": "From the harbour of Ormos up a restored stone path to Skarkos, the best-preserved Early Bronze Age town in the Cyclades, then on to the museum that holds what was found there.",
-    "distanceKm": 2.6,
-    "elevationGainM": 90,
+    "distanceKm": 6.02,
+    "elevationGainM": 410,
     "difficulty": "Easy",
+    "estimatedTime": "2.5\u20133 hr",
     "basedOn": "Follows the existing paved access path to the Skarkos archaeological site; cross-check with local 'Ios Paths' trail network before walking.",
     "note": "Coordinates are approximate placeholders for prototyping. Replace with a surveyed GPX track before publishing."
   },
@@ -19,73 +23,494 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [25.2820, 36.7195],
-          [25.2808, 36.7208],
-          [25.2795, 36.7222],
-          [25.2788, 36.7233],
-          [25.2825, 36.7167]
+          [
+            25.28348,
+            36.73155
+          ],
+          [
+            25.28387,
+            36.73146
+          ],
+          [
+            25.28377,
+            36.73121
+          ],
+          [
+            25.2838,
+            36.7312
+          ],
+          [
+            25.28371,
+            36.73099
+          ],
+          [
+            25.28376,
+            36.73096
+          ],
+          [
+            25.28362,
+            36.73068
+          ],
+          [
+            25.28364,
+            36.73064
+          ],
+          [
+            25.28363,
+            36.73059
+          ],
+          [
+            25.28347,
+            36.7303
+          ],
+          [
+            25.2834,
+            36.73006
+          ],
+          [
+            25.28339,
+            36.72995
+          ],
+          [
+            25.28339,
+            36.72974
+          ],
+          [
+            25.28339,
+            36.72967
+          ],
+          [
+            25.2835,
+            36.72944
+          ],
+          [
+            25.28354,
+            36.72923
+          ],
+          [
+            25.28353,
+            36.72915
+          ],
+          [
+            25.2835,
+            36.72908
+          ],
+          [
+            25.28341,
+            36.72893
+          ],
+          [
+            25.28338,
+            36.72862
+          ],
+          [
+            25.28336,
+            36.72853
+          ],
+          [
+            25.28327,
+            36.72831
+          ],
+          [
+            25.28326,
+            36.72827
+          ],
+          [
+            25.28328,
+            36.72815
+          ],
+          [
+            25.28333,
+            36.72804
+          ],
+          [
+            25.28335,
+            36.72786
+          ],
+          [
+            25.28344,
+            36.72769
+          ],
+          [
+            25.28351,
+            36.72762
+          ],
+          [
+            25.28362,
+            36.7275
+          ],
+          [
+            25.28367,
+            36.7274
+          ],
+          [
+            25.28374,
+            36.72737
+          ],
+          [
+            25.28388,
+            36.72733
+          ],
+          [
+            25.28393,
+            36.72729
+          ],
+          [
+            25.28405,
+            36.72715
+          ],
+          [
+            25.28415,
+            36.72705
+          ],
+          [
+            25.28416,
+            36.72691
+          ],
+          [
+            25.28415,
+            36.72678
+          ],
+          [
+            25.28417,
+            36.72658
+          ],
+          [
+            25.28418,
+            36.72655
+          ],
+          [
+            25.28421,
+            36.72655
+          ],
+          [
+            25.28425,
+            36.72658
+          ],
+          [
+            25.2843,
+            36.7266
+          ],
+          [
+            25.28434,
+            36.72659
+          ],
+          [
+            25.28438,
+            36.72656
+          ],
+          [
+            25.2845,
+            36.72638
+          ],
+          [
+            25.28455,
+            36.72626
+          ],
+          [
+            25.28466,
+            36.72612
+          ],
+          [
+            25.28474,
+            36.72607
+          ],
+          [
+            25.28481,
+            36.72599
+          ],
+          [
+            25.28485,
+            36.7259
+          ],
+          [
+            25.2849,
+            36.72543
+          ],
+          [
+            25.28498,
+            36.72525
+          ],
+          [
+            25.285,
+            36.72522
+          ],
+          [
+            25.28512,
+            36.7249
+          ],
+          [
+            25.28515,
+            36.72473
+          ],
+          [
+            25.28513,
+            36.72467
+          ],
+          [
+            25.28502,
+            36.72457
+          ],
+          [
+            25.28494,
+            36.72453
+          ],
+          [
+            25.2849,
+            36.72448
+          ],
+          [
+            25.2849,
+            36.72443
+          ],
+          [
+            25.28479,
+            36.72432
+          ],
+          [
+            25.28467,
+            36.72424
+          ],
+          [
+            25.28446,
+            36.72403
+          ],
+          [
+            25.28437,
+            36.72396
+          ],
+          [
+            25.28422,
+            36.72389
+          ],
+          [
+            25.28426,
+            36.72379
+          ],
+          [
+            25.2843,
+            36.72376
+          ],
+          [
+            25.28436,
+            36.7236
+          ],
+          [
+            25.28447,
+            36.72344
+          ],
+          [
+            25.28452,
+            36.7234
+          ],
+          [
+            25.28463,
+            36.72338
+          ],
+          [
+            25.28468,
+            36.72334
+          ],
+          [
+            25.2847,
+            36.7233
+          ],
+          [
+            25.28473,
+            36.72326
+          ],
+          [
+            25.28477,
+            36.72301
+          ],
+          [
+            25.28516,
+            36.72302
+          ],
+          [
+            25.28514,
+            36.72311
+          ],
+          [
+            25.28515,
+            36.72335
+          ],
+          [
+            25.28516,
+            36.72341
+          ],
+          [
+            25.28515,
+            36.72335
+          ],
+          [
+            25.28514,
+            36.72311
+          ],
+          [
+            25.28516,
+            36.72302
+          ],
+          [
+            25.28477,
+            36.72301
+          ],
+          [
+            25.28453,
+            36.72299
+          ],
+          [
+            25.28444,
+            36.72316
+          ],
+          [
+            25.2843,
+            36.72331
+          ],
+          [
+            25.28422,
+            36.72338
+          ],
+          [
+            25.28415,
+            36.72343
+          ],
+          [
+            25.28389,
+            36.72348
+          ],
+          [
+            25.28374,
+            36.7235
+          ],
+          [
+            25.28361,
+            36.72354
+          ],
+          [
+            25.28358,
+            36.72356
+          ],
+          [
+            25.28331,
+            36.72357
+          ],
+          [
+            25.28317,
+            36.72355
+          ],
+          [
+            25.28297,
+            36.72357
+          ],
+          [
+            25.28287,
+            36.72357
+          ],
+          [
+            25.2827,
+            36.72356
+          ],
+          [
+            25.28258,
+            36.72353
+          ],
+          [
+            25.28246,
+            36.72353
+          ],
+          [
+            25.2823,
+            36.72349
+          ],
+          [
+            25.28227,
+            36.72345
+          ],
+          [
+            25.28215,
+            36.72343
+          ],
+          [
+            25.28213,
+            36.72346
+          ]
         ]
       },
-      "properties": { "kind": "route" }
+      "properties": {
+        "kind": "route"
+      }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [25.2820, 36.7195] },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.2828,
+          36.7319
+        ]
+      },
       "properties": {
         "kind": "waypoint",
         "order": 1,
-        "type": "trailhead",
-        "name": "Ormos Harbour",
-        "period": "Present day",
-        "description": "Ios's working harbour sits beside one of the most sheltered natural anchorages in the Cyclades, close to the island's most fertile plains. That combination of safe harbour and good farmland is exactly why a Bronze Age town grew on the hill just ahead."
+        "type": "settlement",
+        "name": "Skarkos",
+        "period": "Early Cycladic II",
+        "description": "Skarkos archaeological settlement."
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [25.2795, 36.7222] },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.28374,
+          36.727355
+        ]
+      },
       "properties": {
         "kind": "waypoint",
         "order": 2,
-        "type": "path",
-        "name": "The Restored Stone Path",
-        "period": "Conservation works 2002–2007",
-        "description": "This traditional paved path up to the site was carefully restored as part of the works that opened Skarkos to visitors, using local stone and methods in keeping with the settlement it leads to."
+        "type": "house",
+        "name": "Early Modern Houses",
+        "period": "Present day",
+        "description": "Cluster of early modern houses near the route."
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [25.2788, 36.7233] },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.285109,
+          36.723382
+        ]
+      },
       "properties": {
         "kind": "waypoint",
         "order": 3,
-        "type": "settlement",
-        "name": "Skarkos",
-        "period": "Early Cycladic II, Keros–Syros culture (mid-3rd millennium BC)",
-        "description": "The largest and best-preserved settlement of its culture anywhere in the Aegean: two-storey stone houses on terraces following the hill's natural shape, walls still standing three to four metres high, and narrow streets between them. Around 200–300 people once lived here, in houses of clearly different sizes, an early sign of social differences within the community. Its town planning has been compared to Poliochni on Lemnos, a link that ties this trail back to the same wider Aegean world explored in the geo-archaeo routes of Lemnos."
+        "type": "viewpoint",
+        "name": "Windmills",
+        "period": "Historic",
+        "description": "Traditional windmills on the ridge."
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [25.2788, 36.7233] },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.285109,
+          36.723382
+        ]
+      },
       "properties": {
         "kind": "waypoint",
         "order": 4,
-        "type": "archaeology",
-        "name": "Storerooms and Sealed Jars",
-        "period": "Early Cycladic II (mid-3rd millennium BC)",
-        "description": "Large storage pithoi over a metre tall once held agricultural surplus, while smaller amphorae moved liquids between households or out by boat. Clay seals stamped onto pottery show someone was tracking production and distribution: an early bureaucracy of grain and oil, not just of trade."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [25.2825, 36.7167] },
-      "properties": {
-        "kind": "waypoint",
-        "order": 5,
         "type": "museum",
-        "name": "Archaeological Museum of Ios, Chora",
+        "name": "Archaeological Museum",
         "period": "Present day",
-        "description": "Finds from Skarkos, marble figurines, obsidian tools, stone vessels and the stamped seals, are conserved and displayed here in Chora, the natural place to end the walk and see up close what the hillside terraces produced."
+        "description": "Local archaeological museum in Chora."
       }
     }
   ]

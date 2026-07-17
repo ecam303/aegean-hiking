@@ -15,8 +15,11 @@ const GLYPHS = {
 
 function waypointIcon(type, active) {
   const glyph = GLYPHS[type] || GLYPHS.settlement;
-  const stroke = active ? "#C1873A" : "#1A1613";
-  const bg = active ? "#1A1613" : "#F6F1E7";
+  // Use the site's wine/purple accent for waypoint strokes and
+  // toggle background on active state for better contrast.
+  const purple = '#7B2456';
+  const stroke = active ? '#FFFFFF' : purple;
+  const bg = active ? purple : '#FFFFFF';
   const size = active ? 34 : 28;
   return L.divIcon({
     className: "wp-icon",

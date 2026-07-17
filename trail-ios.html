@@ -7,6 +7,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="stylesheet" href="css/style.css" />
 <script>window.TRAIL_ISLAND = "ios";</script>
 </head>
@@ -35,6 +36,7 @@
   <div class="fact-strip-v3">
     <div><span class="fact-label">Distance</span><span class="fact-value" id="statDistance"></span></div>
     <div><span class="fact-label">Elevation</span><span class="fact-value" id="statGain"></span></div>
+    <div><span class="fact-label">Est. time</span><span class="fact-value" id="statTime"></span></div>
     <div><span class="fact-label">Difficulty</span><span class="fact-value" id="statDifficulty"></span></div>
   </div>
   <p class="trail-note-v3" id="trailNote"></p>
@@ -55,13 +57,19 @@
 
   <section class="trail-main">
     <div class="map-shell">
-      <iframe class="alltrails" src="https://www.alltrails.com/widget/map/custom-route-1b53e32?u=m&sh=k0prxu" width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="AllTrails: Trail Guides and Maps for Hiking, Camping, and Running"></iframe>
+      <div id="map"></div>
     </div>
 
     <div class="waypoint-detail">
       <span class="waypoint-detail__label">Current waypoint</span>
       <h2 id="detailTitle">Ormos Harbour</h2>
       <p id="detailText">The beginning of the route sits at the harbour, where sheltered waters and fertile coastal plains once made this an attractive landing point for early Aegean sailors and farmers.</p>
+
+      <div class="location-panel" id="locationPanel" aria-live="polite">
+        <div><strong>Location:</strong> <span id="locationStatus">Waiting for GPS…</span></div>
+        <div><strong>Next:</strong> <span id="nextWaypointName">Skarkos</span></div>
+        <div><strong>Distance:</strong> <span id="distanceToNext">—</span></div>
+      </div>
 
       <div class="gallery-wrap">
         <div class="gallery__track" id="galleryTrack"></div>
@@ -77,18 +85,34 @@
 </div>
 
 <footer class="footer-v3">
-  <p>
-    Embedded map and route details via <a href="https://www.alltrails.com" target="_blank" rel="noopener">AllTrails</a>. Trail coordinates are approximate prototypes.
-  </p>
+  <p>Trail coordinates are approximate prototypes. Built with <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a> and <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>.</p>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/image-attribs.js"></script>
 <script>
   const SYROS_PLACEHOLDER = 'assets/syros-kastri-trailhead-sign.jpg';
+  const TRAIL_NAME = window.TRAIL_ISLAND.charAt(0).toUpperCase() + window.TRAIL_ISLAND.slice(1);
+  let trailMap;
   let waypointFeatures = [];
+  let markersByOrder = {};
   let currentOrder = 1;
+  let locationMarker = null;
+  let accuracyCircle = null;
+  let lastPosition = null;
+  let locationWatchId = null;
 
   function initMap() {
-    /* Embedded AllTrails map is shown in the iframe above. */
+    trailMap = L.map('map', { scrollWheelZoom: false });
+    window.trailMap = trailMap;
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(trailMap);
+    L.control.zoom({ position: 'topright' }).addTo(trailMap);
+    trailMap.whenReady(() => setTimeout(() => trailMap.invalidateSize(), 0));
+    window.addEventListener('resize', () => trailMap.invalidateSize());
   }
 
   function updateNavActive(order) {
@@ -98,7 +122,10 @@
   }
 
   function updateMarkerStyles(activeOrder) {
-    /* No Leaflet markers to style for the embedded AllTrails map. */
+    Object.values(markersByOrder).forEach(marker => {
+      const order = marker.wpOrder;
+      marker.setIcon(waypointIcon(marker.wpType, order === activeOrder));
+    });
   }
 
   function renderGallery(images) {
@@ -106,11 +133,22 @@
     track.innerHTML = (images || []).map((item, index) => `
       <div class="gallery__slide${index === 0 ? ' active' : ''}" data-index="${index}">
         <img src="${item.src}" alt="${item.caption}">
-        <div class="gallery__caption">${item.caption}</div>
+        <div class="gallery__caption">
+          ${item.caption}
+          ${item.attribution ? `<div class="gallery__attribution">${item.attribution}</div>` : ''}
+        </div>
       </div>
     `).join('');
-    // ensure first slide is visible
-    selectGallery(0);
+  }
+
+  function getGalleryImagesForWaypoint(name) {
+    const images = getWaypointImages(TRAIL_NAME, name);
+    if (images.length) return images;
+    return [
+      { src: SYROS_PLACEHOLDER, caption: name + ' — view', attribution: '' },
+      { src: SYROS_PLACEHOLDER, caption: name + ' — detail', attribution: '' },
+      { src: SYROS_PLACEHOLDER, caption: name + ' — context', attribution: '' }
+    ];
   }
 
   function selectGallery(index) {
@@ -119,6 +157,76 @@
     const nextIndex = (index + slides.length) % slides.length;
     slides.forEach(slide => slide.classList.toggle('active', Number(slide.dataset.index) === nextIndex));
     slides[nextIndex]?.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+  }
+
+  function metersBetween(lat1, lng1, lat2, lng2) {
+    const toRad = deg => deg * Math.PI / 180;
+    const R = 6371000;
+    const dLat = toRad(lat2 - lat1);
+    const dLng = toRad(lng2 - lng1);
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
+      + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+
+  function refreshLocationPanel() {
+    const nextWaypoint = waypointFeatures.find(wp => wp.properties.order === currentOrder) || waypointFeatures[0];
+    document.getElementById('nextWaypointName').textContent = nextWaypoint ? nextWaypoint.properties.name : 'Unknown';
+    if (!lastPosition) {
+      document.getElementById('distanceToNext').textContent = '—';
+      return;
+    }
+    const { latitude, longitude } = lastPosition.coords;
+    const [lng, lat] = nextWaypoint.geometry.coordinates;
+    const distance = metersBetween(latitude, longitude, lat, lng);
+    document.getElementById('distanceToNext').textContent = `${Math.round(distance)} m`;
+  }
+
+  function updateLocationPanel(position) {
+    lastPosition = position;
+    document.getElementById('locationStatus').textContent = `${position.coords.latitude.toFixed(5)}, ${position.coords.longitude.toFixed(5)} (±${Math.round(position.coords.accuracy)} m)`;
+    refreshLocationPanel();
+  }
+
+  function updateTrackingMarkers(position) {
+    const lat = position.coords.latitude;
+    const lng = position.coords.longitude;
+    if (!locationMarker) {
+      locationMarker = L.circleMarker([lat, lng], {
+        radius: 8,
+        color: '#7B2456',
+        fillColor: '#7B2456',
+        fillOpacity: 0.8,
+        weight: 2
+      }).addTo(trailMap);
+      accuracyCircle = L.circle([lat, lng], {
+        radius: position.coords.accuracy,
+        color: '#7B2456',
+        fillColor: '#7B2456',
+        fillOpacity: 0.1,
+        weight: 1
+      }).addTo(trailMap);
+    } else {
+      locationMarker.setLatLng([lat, lng]);
+      accuracyCircle.setLatLng([lat, lng]).setRadius(position.coords.accuracy);
+    }
+  }
+
+  function startLocationTracking() {
+    if (!navigator.geolocation) {
+      document.getElementById('locationStatus').textContent = 'Geolocation unavailable';
+      return;
+    }
+    locationWatchId = navigator.geolocation.watchPosition(position => {
+      updateLocationPanel(position);
+      updateTrackingMarkers(position);
+    }, error => {
+      document.getElementById('locationStatus').textContent = `GPS error: ${error.message}`;
+    }, {
+      enableHighAccuracy: true,
+      maximumAge: 5000,
+      timeout: 10000
+    });
   }
 
   function scrollGallery(direction) {
@@ -130,21 +238,21 @@
 
   function focusWaypoint(order) {
     const waypoint = waypointFeatures.find(item => item.properties.order === order);
-    if (!waypoint) return;
+    const marker = markersByOrder[order];
+    if (!waypoint || !marker) return;
 
     currentOrder = order;
+    marker.openPopup();
+    trailMap.flyTo(marker.getLatLng(), 16, { duration: 0.8 });
     updateNavActive(order);
     updateMarkerStyles(order);
     document.getElementById('detailTitle').textContent = waypoint.properties.name;
     document.getElementById('detailText').textContent = waypoint.properties.description || 'Placeholder text about this waypoint and its importance along the route.';
+    refreshLocationPanel();
 
-    // use the syros placeholder repeatedly so testing can show multiple images
-    const images = (waypoint._images && waypoint._images.length) ? waypoint._images : [
-      { src: SYROS_PLACEHOLDER, caption: waypoint.properties.name + ' — view' },
-      { src: SYROS_PLACEHOLDER, caption: waypoint.properties.name + ' — detail' },
-      { src: SYROS_PLACEHOLDER, caption: waypoint.properties.name + ' — context' }
-    ];
+    const images = getGalleryImagesForWaypoint(waypoint.properties.name);
     renderGallery(images);
+    refreshLocationPanel();
   }
 
   function renderNav() {
@@ -164,12 +272,12 @@
   async function loadTrail() {
     const response = await fetch('data/ios.geojson');
     const data = await response.json();
+    const route = data.features.find(item => item.properties.kind === 'route');
     waypointFeatures = data.features
       .filter(item => item.properties.kind === 'waypoint')
       .sort((a, b) => a.properties.order - b.properties.order)
       .slice(0, 4);
 
-    // attach a simple test gallery to each waypoint (3 identical images)
     waypointFeatures.forEach(wp => {
       wp._images = [
         { src: SYROS_PLACEHOLDER, caption: wp.properties.name + ' — view' },
@@ -178,13 +286,76 @@
       ];
     });
 
+    const props = data.properties || {};
+    document.getElementById('trailIsland').textContent = props.island || 'Ios';
+    document.getElementById('trailTitle').textContent = props.trailName || 'The Terraces of Skarkos';
+    document.getElementById('trailSummary').textContent = props.summary || '';
+    document.getElementById('statDistance').textContent = props.distanceKm ? `${props.distanceKm.toFixed(2)} km` : '';
+    document.getElementById('statGain').textContent = props.elevationGainM ? `${props.elevationGainM} m` : '';
+    document.getElementById('statTime').textContent = props.estimatedTime || '';
+    document.getElementById('statDifficulty').textContent = props.difficulty || '';
+    document.getElementById('trailNote').textContent = props.note || '';
+
+    let routeLayer = null;
+    if (route) {
+      routeLayer = L.geoJSON(route, {
+        style: { color: '#8B0000', weight: 6, opacity: 1, lineCap: 'round', lineJoin: 'round' }
+      }).addTo(trailMap);
+      routeLayer.bringToFront();
+    }
+
+    const center = Array.isArray(data.properties?.center) && data.properties.center.length === 2
+      ? [data.properties.center[1], data.properties.center[0]]
+      : null;
+    const defaultZoom = Number(data.properties?.zoom) || 14;
+
+    // Compute bounds from route and waypoints and fit them if available.
+    const routeBounds = routeLayer ? routeLayer.getBounds() : null;
+    const waypointBounds = waypointFeatures.length ? L.latLngBounds(waypointFeatures.map(wp => {
+      const [lng, lat] = wp.geometry.coordinates;
+      return [lat, lng];
+    })) : null;
+
+    if (routeBounds && routeBounds.isValid()) {
+      if (waypointBounds && waypointBounds.isValid()) {
+        trailMap.fitBounds(routeBounds.extend(waypointBounds), { padding: [24, 24] });
+      } else {
+        trailMap.fitBounds(routeBounds, { padding: [24, 24] });
+      }
+    } else if (waypointBounds && waypointBounds.isValid()) {
+      trailMap.fitBounds(waypointBounds, { padding: [24, 24] });
+    } else if (center) {
+      trailMap.setView(center, defaultZoom);
+    }
+
+    waypointFeatures.forEach(waypoint => {
+      const [lng, lat] = waypoint.geometry.coordinates;
+      const marker = L.marker([lat, lng], { icon: waypointIcon(waypoint.properties.type, false) });
+      marker.wpOrder = waypoint.properties.order;
+      marker.wpType = waypoint.properties.type;
+      marker.addTo(trailMap);
+      marker.bindPopup(`
+        <h3>${waypoint.properties.name}</h3>
+        <span class="period">${waypoint.properties.period}</span>
+        <p>${waypoint.properties.description}</p>
+      `);
+      marker.on('click', () => focusWaypoint(waypoint.properties.order));
+      markersByOrder[waypoint.properties.order] = marker;
+    });
+
     renderNav();
+
+    
+
     focusWaypoint(waypointFeatures[0].properties.order);
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', async () => {
+    await loadImageAttribs();
+    window.scrollTo(0, 0);
     initMap();
     loadTrail();
+    startLocationTracking();
     document.getElementById('galleryPrev').addEventListener('click', () => scrollGallery(-1));
     document.getElementById('galleryNext').addEventListener('click', () => scrollGallery(1));
 

@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/patch-waypoint-nav.css" />
 <script>window.TRAIL_ISLAND = "syros";</script>
 </head>
 <body class="site-v3">
@@ -46,8 +45,8 @@
   <aside class="trail-sidebar">
     <div class="trail-sidebar__intro">
       <p class="trail-hero-v3__kicker">Start of the Trail</p>
-      <h2 class="trail-sidebar__headline">Trailhead</h2>
-      <p class="trail-sidebar__copy">Begin at the marked trailhead and follow the coastal terraces. Use the waypoint menu to jump between stops and inspect photos below.</p>
+      <h2 class="trail-sidebar__headline">Syros Trailhead</h2>
+      <p class="trail-sidebar__copy">Begin at the island's coastal trailhead and follow the historic ridge route. Use the waypoint menu to move between stops and see contextual images.</p>
     </div>
     <div class="waypoint-nav">
       <span class="waypoint-nav__title">Waypoints</span>
@@ -65,6 +64,12 @@
       <h2 id="detailTitle">Waypoint</h2>
       <p id="detailText">Placeholder description for the selected waypoint.</p>
 
+      <div class="location-panel" id="locationPanel" aria-live="polite">
+        <div><strong>Location:</strong> <span id="locationStatus">Waiting for GPS…</span></div>
+        <div><strong>Next:</strong> <span id="nextWaypointName">Waypoint</span></div>
+        <div><strong>Distance:</strong> <span id="distanceToNext">—</span></div>
+      </div>
+
       <div class="gallery-wrap">
         <div class="gallery__track" id="galleryTrack"></div>
         <button class="gallery__nav gallery__nav--prev" id="galleryPrev" type="button" aria-label="Previous image">&larr;</button>
@@ -79,21 +84,23 @@
 </div>
 
 <footer class="footer-v3">
-  <p>
-    Built with <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a> and
-    <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">&copy; OpenStreetMap contributors</a> (ODbL).
-    Trail coordinates are approximate prototypes.
-  </p>
+  <p>Trail coordinates are approximate prototypes. Built with <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a> and <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>.</p>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="js/icons.js"></script>
+<script src="js/image-attribs.js"></script>
 <script>
   const SYROS_PLACEHOLDER = 'assets/syros-kastri-trailhead-sign.jpg';
+  const TRAIL_NAME = window.TRAIL_ISLAND.charAt(0).toUpperCase() + window.TRAIL_ISLAND.slice(1);
   let map;
   let waypointFeatures = [];
   let markersByOrder = {};
   let currentOrder = 1;
+  let locationMarker = null;
+  let accuracyCircle = null;
+  let lastPosition = null;
+  let locationWatchId = null;
 
   function initMap() {
     map = L.map('map', { scrollWheelZoom: false });
@@ -124,10 +131,22 @@
     track.innerHTML = (images || []).map((item, index) => `
       <div class="gallery__slide${index === 0 ? ' active' : ''}" data-index="${index}">
         <img src="${item.src}" alt="${item.caption}">
-        <div class="gallery__caption">${item.caption}</div>
+        <div class="gallery__caption">
+          ${item.caption}
+          ${item.attribution ? `<div class="gallery__attribution">${item.attribution}</div>` : ''}
+        </div>
       </div>
     `).join('');
-    selectGallery(0);
+  }
+
+  function getGalleryImagesForWaypoint(name) {
+    const images = getWaypointImages(TRAIL_NAME, name);
+    if (images.length) return images;
+    return [
+      { src: SYROS_PLACEHOLDER, caption: name + ' — view', attribution: '' },
+      { src: SYROS_PLACEHOLDER, caption: name + ' — detail', attribution: '' },
+      { src: SYROS_PLACEHOLDER, caption: name + ' — context', attribution: '' }
+    ];
   }
 
   function selectGallery(index) {
@@ -157,12 +176,9 @@
     updateMarkerStyles(order);
     document.getElementById('detailTitle').textContent = waypoint.properties.name;
     document.getElementById('detailText').textContent = waypoint.properties.description || 'Placeholder text about this waypoint and its importance along the route.';
+    refreshLocationPanel();
 
-    const images = waypoint._images || [
-      { src: SYROS_PLACEHOLDER, caption: waypoint.properties.name + ' — view' },
-      { src: SYROS_PLACEHOLDER, caption: waypoint.properties.name + ' — detail' },
-      { src: SYROS_PLACEHOLDER, caption: waypoint.properties.name + ' — context' }
-    ];
+    const images = getGalleryImagesForWaypoint(waypoint.properties.name);
     renderGallery(images);
   }
 
@@ -235,9 +251,12 @@
     focusWaypoint(waypointFeatures[0].properties.order);
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', async () => {
+    await loadImageAttribs();
+    window.scrollTo(0, 0);
     initMap();
     loadTrail();
+    startLocationTracking();
     document.getElementById('galleryPrev').addEventListener('click', () => scrollGallery(-1));
     document.getElementById('galleryNext').addEventListener('click', () => scrollGallery(1));
 

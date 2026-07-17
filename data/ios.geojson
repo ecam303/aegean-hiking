@@ -1,0 +1,92 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "island": "Ios",
+    "trailName": "The Terraces of Skarkos",
+    "region": "Cyclades",
+    "center": [25.2805, 36.7210],
+    "zoom": 15,
+    "summary": "From the harbour of Ormos up a restored stone path to Skarkos, the best-preserved Early Bronze Age town in the Cyclades, then on to the museum that holds what was found there.",
+    "distanceKm": 2.6,
+    "elevationGainM": 90,
+    "difficulty": "Easy",
+    "basedOn": "Follows the existing paved access path to the Skarkos archaeological site; cross-check with local 'Ios Paths' trail network before walking.",
+    "note": "Coordinates are approximate placeholders for prototyping. Replace with a surveyed GPX track before publishing."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [25.2820, 36.7195],
+          [25.2808, 36.7208],
+          [25.2795, 36.7222],
+          [25.2788, 36.7233],
+          [25.2825, 36.7167]
+        ]
+      },
+      "properties": { "kind": "route" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [25.2820, 36.7195] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 1,
+        "type": "trailhead",
+        "name": "Ormos Harbour",
+        "period": "Present day",
+        "description": "Ios's working harbour sits beside one of the most sheltered natural anchorages in the Cyclades, close to the island's most fertile plains. That combination of safe harbour and good farmland is exactly why a Bronze Age town grew on the hill just ahead."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [25.2795, 36.7222] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 2,
+        "type": "path",
+        "name": "The Restored Stone Path",
+        "period": "Conservation works 2002–2007",
+        "description": "This traditional paved path up to the site was carefully restored as part of the works that opened Skarkos to visitors, using local stone and methods in keeping with the settlement it leads to."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [25.2788, 36.7233] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 3,
+        "type": "settlement",
+        "name": "Skarkos",
+        "period": "Early Cycladic II, Keros–Syros culture (mid-3rd millennium BC)",
+        "description": "The largest and best-preserved settlement of its culture anywhere in the Aegean: two-storey stone houses on terraces following the hill's natural shape, walls still standing three to four metres high, and narrow streets between them. Around 200–300 people once lived here, in houses of clearly different sizes, an early sign of social differences within the community. Its town planning has been compared to Poliochni on Lemnos, a link that ties this trail back to the same wider Aegean world explored in the geo-archaeo routes of Lemnos."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [25.2788, 36.7233] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 4,
+        "type": "archaeology",
+        "name": "Storerooms and Sealed Jars",
+        "period": "Early Cycladic II (mid-3rd millennium BC)",
+        "description": "Large storage pithoi over a metre tall once held agricultural surplus, while smaller amphorae moved liquids between households or out by boat. Clay seals stamped onto pottery show someone was tracking production and distribution: an early bureaucracy of grain and oil, not just of trade."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [25.2825, 36.7167] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 5,
+        "type": "museum",
+        "name": "Archaeological Museum of Ios, Chora",
+        "period": "Present day",
+        "description": "Finds from Skarkos, marble figurines, obsidian tools, stone vessels and the stamped seals, are conserved and displayed here in Chora, the natural place to end the walk and see up close what the hillside terraces produced."
+      }
+    }
+  ]
+}

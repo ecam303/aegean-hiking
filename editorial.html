@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Following the Ships &mdash; Field Notes from the Aegean</title>
+<meta name="description" content="Three walking trails linking Early Cycladic archaeology, geology and landscape on Astypalaia, Ios and Syros." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHDRVxIrsyrpe1etaJ5Nu9WeMPoc=" crossorigin=""/>
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  /* Inline engraving illustrations: line-art in the accent palette,
+     standing in for photography. Replace any <svg> below with a real
+     <img src="assets/your-photo.jpg"> once you have rights-cleared shots. */
+  .story-tile__art svg path,
+  .story-tile__art svg circle,
+  .story-tile__art svg ellipse { fill: none; stroke: var(--ochre); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .story-tile__art.tile-astypalea { background: linear-gradient(160deg, #0F2A38, #16232E); }
+  .story-tile__art.tile-ios { background: linear-gradient(160deg, #2A1F16, #1A1613); }
+  .story-tile__art.tile-syros { background: linear-gradient(160deg, #241A22, #1A1613); }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <p class="kicker">Field notes &middot; a PhD trail prototype &middot; open source</p>
+    <h1>Following the Ships</h1>
+    <p class="lede">
+      Three walking trails through the Early Cycladic Aegean &mdash; Vathy on Astypalaia,
+      Skarkos on Ios, and Kastri &amp; Chalandriani on Syros &mdash; bound together by a single
+      motif carved, painted and cast across five thousand years: the ship.
+    </p>
+    <p class="byline">
+      <span><b>3</b> islands</span>
+      <span><b>15</b> waypoints</span>
+      <span><b>c. 3300&ndash;2000 BC</b> Final Neolithic &rarr; EC III</span>
+    </p>
+  </div>
+</header>
+
+<section class="chronology">
+  <div class="chronology__inner">
+    <p class="kicker" style="color:var(--ochre); margin:0;">A shared chronology</p>
+    <div class="chronology__track" id="timelineTrack"></div>
+  </div>
+</section>
+
+<nav class="story-tiles" id="islandTabs" aria-label="Choose an island trail">
+  <button class="story-tile active" data-id="astypalea">
+    <div class="story-tile__art tile-astypalea">
+      <span class="story-tile__chapter">I.</span>
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+        <path d="M0 210 L60 195 L110 215 L170 180 L230 205 L290 175 L400 200 L400 300 L0 300 Z" stroke-width="2"/>
+        <path d="M120 170 Q160 120 200 170" />
+        <path d="M120 170 L200 170 L205 150 L115 150 Z" stroke-width="2"/>
+        <path d="M160 150 L160 100 L185 115 Z" />
+        <circle cx="290" cy="70" r="26" />
+        <path d="M290 44 L290 96 M264 70 L316 70" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="story-tile__meta">
+      <p class="story-tile__region">Dodecanese</p>
+      <h3 class="story-tile__title">The Ships of Vathy</h3>
+      <p class="story-tile__teaser">Ship, dagger and spiral carvings still catch the light at sunrise on a fortified headland.</p>
+    </div>
+  </button>
+
+  <button class="story-tile" data-id="ios">
+    <div class="story-tile__art tile-ios">
+      <span class="story-tile__chapter">II.</span>
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+        <path d="M0 260 L90 260 L90 225 L160 225 L160 190 L230 190 L230 155 L400 155 L400 300 L0 300 Z" stroke-width="2"/>
+        <rect x="105" y="235" width="26" height="20" />
+        <rect x="175" y="200" width="26" height="20" />
+        <rect x="245" y="165" width="26" height="20" />
+        <circle cx="330" cy="70" r="30" stroke-width="2"/>
+        <path d="M330 30 L330 45 M330 95 L330 110 M290 70 L275 70 M385 70 L370 70" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="story-tile__meta">
+      <p class="story-tile__region">Cyclades</p>
+      <h3 class="story-tile__title">The Terraces of Skarkos</h3>
+      <p class="story-tile__teaser">Two-storey Early Bronze Age houses, still standing four metres high above the harbour.</p>
+    </div>
+  </button>
+
+  <button class="story-tile" data-id="syros">
+    <div class="story-tile__art tile-syros">
+      <span class="story-tile__chapter">III.</span>
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+        <path d="M0 300 L20 240 L70 260 L110 190 L160 230 L210 150 L400 200 L400 300 Z" stroke-width="2"/>
+        <path d="M60 200 Q80 185 100 200" />
+        <path d="M85 195 Q105 180 125 195" />
+        <path d="M110 190 Q130 175 150 190" />
+        <circle cx="300" cy="90" r="46" stroke-width="2"/>
+        <path d="M270 95 L300 75 L330 95 L318 110 L282 110 Z" />
+      </svg>
+    </div>
+    <div class="story-tile__meta">
+      <p class="story-tile__region">Cyclades</p>
+      <h3 class="story-tile__title">Kastri &amp; the City of the Dead</h3>
+      <p class="story-tile__teaser">Six hundred corbelled tombs, a cliffside citadel, and a metal workshop guarded by horseshoe bastions.</p>
+    </div>
+  </button>
+</nav>
+
+<main>
+  <p class="trail-article__kicker kicker" id="trailIslandKicker">Trail log</p>
+  <p id="trailIsland"></p>
+  <h2 id="trailTitle">&nbsp;</h2>
+  <p id="trailSummary"></p>
+
+  <div class="fact-strip">
+    <div><span class="fact-label">Distance</span><span class="fact-value" id="statDistance"></span></div>
+    <div><span class="fact-label">Elevation</span><span class="fact-value" id="statGain"></span></div>
+    <div><span class="fact-label">Difficulty</span><span class="fact-value" id="statDifficulty"></span></div>
+  </div>
+
+  <p class="trail-note" id="trailNote"></p>
+
+  <div class="field-log">
+    <div id="map"></div>
+    <div class="waypoint-list">
+      <p class="field-log__label">Field log &middot; tap a stop</p>
+      <div id="waypointList"></div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>
+    Built with <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a> and
+    <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">&copy; OpenStreetMap contributors</a> (ODbL).
+    Tile illustrations are original line art, not photography &mdash; see the README to swap in your own trip photos.
+    Trail coordinates are approximate prototypes.
+  </p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="js/icons.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

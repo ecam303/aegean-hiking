@@ -1,0 +1,1142 @@
+/* ============================================================
+   Design tokens — "Field Notes from the Aegean"
+   An editorial-magazine direction built around archaeological
+   engraving/illustration plates instead of stock photography:
+   ink on parchment, one burnt-ochre accent, deep sea-night blue.
+   ============================================================ */
+:root {
+  --paper: #F6F1E7;
+  --paper-dim: #EAE1D0;
+  --ink: #1A1613;
+  --ink-soft: #4A4238;
+  --sea: #0F2A38;
+  --sea-soft: #1C3E4E;
+  --ochre: #C1873A;
+  --ochre-deep: #8F5F1F;
+  --rust: #A8502E;
+  --moss: #6B7654;
+
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-cond: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --radius: 2px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  line-height: 1.6;
+}
+
+a { color: var(--rust); }
+
+.kicker {
+  font-family: var(--font-cond);
+  font-size: 0.95rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ============================================================
+   Masthead
+   ============================================================ */
+.masthead {
+  background: var(--sea);
+  color: var(--paper);
+  padding: 3.2rem 1.5rem 2.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.masthead::before {
+  /* faint engraved wave texture behind the title, drawn not photographed */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(193,135,58,0.06) 0px,
+    rgba(193,135,58,0.06) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+  pointer-events: none;
+}
+
+.masthead__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.masthead .kicker {
+  color: var(--ochre);
+  margin: 0 0 0.9rem;
+}
+
+.masthead h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.6rem, 6.4vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  margin: 0 0 1rem;
+  max-width: 16ch;
+}
+
+.masthead p.lede {
+  font-family: var(--font-serif);
+  max-width: 58ch;
+  color: #D9E1E4;
+  font-size: 1.15rem;
+  margin: 0 0 0;
+}
+
+.masthead .byline {
+  margin-top: 1.6rem;
+  font-family: var(--font-cond);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8FA4AD;
+  display: flex;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+}
+
+.masthead .byline b { color: var(--ochre); font-weight: 600; }
+
+/* ============================================================
+   Chronology strip
+   ============================================================ */
+.chronology {
+  background: var(--sea);
+  border-top: 1px solid rgba(193,135,58,0.25);
+  padding: 2.6rem 1.5rem 3rem;
+}
+
+.chronology__inner { max-width: 1180px; margin: 0 auto; }
+
+.chronology__track {
+  position: relative;
+  height: 1px;
+  background: rgba(193,135,58,0.35);
+  margin: 2.4rem 0 2rem;
+}
+
+.chronology__marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  background: var(--ochre);
+  border-radius: 50%;
+}
+
+.chronology__label {
+  position: absolute;
+  top: -2.5rem;
+  transform: translateX(-50%);
+  font-family: var(--font-cond);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--paper);
+}
+
+.chronology__label span {
+  display: block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.72rem;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #93A7AF;
+}
+
+.chronology__date {
+  position: absolute;
+  bottom: -1.7rem;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ochre);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Story tiles (island selector) — engraved-plate illustrations
+   standing in for photography. Swap the <svg> for a real <img>
+   per tile whenever you have rights-cleared trip photography.
+   ============================================================ */
+.story-tiles {
+  max-width: 1180px;
+  margin: -2.6rem auto 0;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.3rem;
+}
+
+.story-tile {
+  background: var(--ink);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  color: var(--paper);
+  overflow: hidden;
+  box-shadow: 0 14px 30px -14px rgba(15,15,10,0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+}
+
+.story-tile:hover { transform: translateY(-3px); }
+
+.story-tile.active {
+  box-shadow: 0 0 0 2px var(--ochre), 0 18px 34px -14px rgba(15,15,10,0.5);
+}
+
+.story-tile__art {
+  aspect-ratio: 4 / 3;
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+.story-tile__art svg {
+  width: 100%;
+  height: 100%;
+}
+
+.story-tile__chapter {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.9rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ochre);
+  z-index: 2;
+}
+
+.story-tile__meta {
+  padding: 1.1rem 1.2rem 1.3rem;
+}
+
+.story-tile__region {
+  font-family: var(--font-cond);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ochre);
+  margin: 0 0 0.3rem;
+}
+
+.story-tile__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin: 0 0 0.4rem;
+  line-height: 1.1;
+}
+
+.story-tile__teaser {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  color: #C7BFAE;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* ============================================================
+   Main article / trail panel
+   ============================================================ */
+main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.trail-article__kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--rust);
+  margin-bottom: 0.6rem;
+}
+
+.trail-article__kicker::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--paper-dim);
+}
+
+#trailIsland {
+  font-family: var(--font-cond);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin: 0 0 0.9rem;
+}
+
+#trailTitle {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 4.4vw, 3.1rem);
+  line-height: 1.02;
+  margin: 0 0 1rem;
+  max-width: 20ch;
+}
+
+#trailSummary {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  line-height: 1.65;
+  max-width: 68ch;
+  color: var(--ink-soft);
+}
+
+#trailSummary::first-letter {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 3.6rem;
+  float: left;
+  line-height: 0.8;
+  padding: 0.05em 0.08em 0 0;
+  color: var(--rust);
+}
+
+.fact-strip {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  margin: 1.8rem 0 1.6rem;
+  border-top: 1px solid var(--paper-dim);
+  border-bottom: 1px solid var(--paper-dim);
+}
+
+.fact-strip div {
+  padding: 0.7rem 1.6rem 0.7rem 0;
+  margin-right: 1.6rem;
+  border-right: 1px solid var(--paper-dim);
+}
+
+.fact-strip div:last-child { border-right: none; }
+
+.fact-strip .fact-label {
+  display: block;
+  font-family: var(--font-cond);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--moss);
+}
+
+.fact-strip .fact-value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+
+.trail-note {
+  font-family: var(--font-cond);
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  color: var(--ink-soft);
+  background: var(--paper-dim);
+  border-left: 3px solid var(--ochre);
+  padding: 0.7rem 1rem;
+  margin-bottom: 2.2rem;
+}
+
+.field-log {
+  border: 1px solid var(--paper-dim);
+  background: #fff;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+}
+
+#map {
+  min-height: 480px;
+  background: var(--paper-dim);
+  filter: sepia(8%) saturate(85%);
+}
+
+.waypoint-list {
+  border-left: 1px solid var(--paper-dim);
+  max-height: 640px;
+  overflow-y: auto;
+}
+
+.field-log__label {
+  font-family: var(--font-cond);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--moss);
+  padding: 0.9rem 1.3rem 0.6rem;
+  border-bottom: 1px solid var(--paper-dim);
+}
+
+.waypoint {
+  padding: 1.1rem 1.3rem;
+  border-bottom: 1px solid var(--paper-dim);
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.waypoint:hover { background: var(--paper); }
+
+.waypoint.active {
+  background: var(--paper);
+  box-shadow: inset 3px 0 0 var(--rust);
+}
+
+.waypoint__head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+}
+
+.waypoint__order {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--rust);
+  min-width: 1.6ch;
+}
+
+.waypoint__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.waypoint__period {
+  font-family: var(--font-cond);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin: 0.2rem 0 0.55rem;
+}
+
+.waypoint__desc {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  display: none;
+}
+
+.waypoint.active .waypoint__desc { display: block; }
+
+.waypoint__photo {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  border: 1px solid var(--paper-dim);
+  margin: 0.5rem 0 0.7rem;
+  filter: sepia(6%) saturate(90%);
+}
+
+.popup-photo {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin: 0.4rem 0;
+  border: 1px solid var(--paper-dim);
+}
+
+/* Leaflet popup theming */
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius);
+  font-family: var(--font-serif);
+  background: var(--paper);
+}
+.leaflet-popup-content h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin: 0 0 0.2rem;
+  font-size: 1.1rem;
+}
+.leaflet-popup-content .period {
+  font-family: var(--font-cond);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.8rem 1.5rem;
+  font-family: var(--font-cond);
+  font-size: 0.85rem;
+  color: var(--moss);
+  border-top: 1px solid var(--paper-dim);
+}
+
+.site-footer a { color: var(--moss); }
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 900px) {
+  .story-tiles { grid-template-columns: 1fr; margin-top: 1.5rem; }
+  .field-log { grid-template-columns: 1fr; }
+  #map { min-height: 340px; }
+  .waypoint-list { border-left: none; border-top: 1px solid var(--paper-dim); max-height: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+:focus-visible {
+  outline: 2px solid var(--ochre);
+  outline-offset: 2px;
+}
+
+
+/* ============================================================
+   Homepage v3 — "Geo-Archaeo Hiking"
+   Rebuilt to match the actual Atlantis template screenshots:
+   white ground, deep wine/maroon accent, black serif headings,
+   gray sans body copy, sharp-cornered buttons, dark rating-style
+   badges, and a small wave-squiggle divider under section titles.
+   ============================================================ */
+
+:root {
+  --wine: #7B2456;
+  --wine-dark: #5C1A40;
+  --offwhite: #F6F4F1;
+  --text-gray: #767676;
+  --line: #E7E3DC;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+}
+
+.site-v3 h1, .site-v3 h2, .site-v3 h3 {
+  font-family: var(--font-display);
+  color: #1A1A1A;
+  font-weight: 600;
+}
+
+.site-v3 { font-family: var(--font-sans); color: var(--text-gray); }
+
+/* Nav */
+.nav-v3 {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  padding: 1.1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav-v3__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-v3__logo {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--wine);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.nav-v3__menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: #1A1A1A;
+}
+
+.nav-v3__menu-btn svg { width: 22px; height: 22px; }
+
+.nav-v3__links {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 1.5rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+  flex-direction: column;
+  min-width: 200px;
+  z-index: 60;
+}
+
+.nav-v3__links.open { display: flex; }
+
+.nav-v3__links a {
+  padding: 0.9rem 1.3rem;
+  color: #1A1A1A;
+  text-decoration: none;
+  font-size: 0.92rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-v3__links a:last-child { border-bottom: none; }
+.nav-v3__links a:hover { color: var(--wine); background: var(--offwhite); }
+
+/* Hero */
+.hero-v3 {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(10,20,26,0.45), rgba(10,20,26,0.62)), url('../assets/sea-placeholder.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Decorative sea texture stand-in for a hero photograph — swap this
+   whole rule's background for background-image: url('assets/your-hero.jpg')
+   once you have a rights-cleared photo. */
+.hero-v3__inner { position: relative; max-width: 720px; padding: 2rem 1.5rem; }
+
+.wave-divider { color: var(--wine); margin: 0 auto 1.4rem; display: block; }
+.wave-divider.on-dark { color: #fff; }
+
+.hero-v3 h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: #fff;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.08;
+  margin: 0 0 1.2rem;
+}
+
+.hero-v3 p {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 46ch;
+  margin: 0 auto 2rem;
+}
+
+.btn-wine {
+  display: inline-block;
+  background: var(--wine);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border-radius: 0;
+  transition: background 0.15s ease;
+}
+
+.btn-wine:hover { background: var(--wine-dark); }
+
+/* Section shell */
+.section-v3 { padding: 5rem 1.5rem; }
+.section-v3.alt { background: var(--offwhite); }
+
+.section-v3__inner { max-width: 1180px; margin: 0 auto; }
+
+.section-v3__head { text-align: center; max-width: 620px; margin: 0 auto 3rem; }
+
+.section-v3__head h2 {
+  font-size: clamp(1.9rem, 3.4vw, 2.5rem);
+  margin: 0 0 0.9rem;
+}
+
+.section-v3__head p {
+  font-family: var(--font-sans);
+  color: var(--text-gray);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+/* About the Project — icon list (boat sketches stand in for the
+   template's line icons) */
+.about-v3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.6rem;
+  margin-top: 2.6rem;
+}
+
+.about-v3__item { text-align: left; }
+
+.about-v3__icon {
+  height: 74px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.1rem;
+}
+
+.about-v3__icon img { max-height: 64px; max-width: 130px; object-fit: contain; }
+
+.about-v3__item h3 { font-size: 1.25rem; margin: 0 0 0.6rem; }
+
+.about-v3__item p {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-gray);
+  margin: 0 0 0.8rem;
+}
+
+.link-wine {
+  color: var(--wine);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.link-wine:hover { text-decoration: underline; }
+
+/* Trails and Stories — card grid ("Best Rooms" equivalent) */
+.trails-v3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  margin-top: 2.6rem;
+}
+
+.trail-v3-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+}
+
+.trail-v3-card__img { aspect-ratio: 4/3; overflow: hidden; }
+.trail-v3-card__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.trail-v3-card__body { padding: 1.5rem 1.5rem 1.7rem; }
+
+.trail-v3-card h3 { font-size: 1.55rem; margin: 0 0 0.7rem; }
+
+.trail-v3-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.badge-dark {
+  background: #1A1A1A;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+}
+
+.meta-item {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-gray);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.meta-item svg { width: 14px; height: 14px; }
+
+.trail-v3-card p.desc {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-gray);
+  margin: 0 0 1.4rem;
+}
+
+.trail-v3-card .btn-wine { width: 100%; text-align: center; }
+
+/* Contact strip */
+.contact-v3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.6rem;
+  margin-top: 2.4rem;
+}
+
+.contact-v3__item {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  font-family: var(--font-sans);
+  color: var(--text-gray);
+  font-size: 0.95rem;
+}
+
+.contact-v3__item svg { flex-shrink: 0; width: 20px; height: 20px; color: var(--text-gray); margin-top: 0.15rem; }
+
+.social-v3 { display: flex; gap: 0.9rem; justify-content: center; margin: 2.4rem 0 1.4rem; }
+
+.social-v3 a {
+  width: 38px; height: 38px;
+  border: 1.5px solid var(--wine);
+  color: var(--wine);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+}
+
+.social-v3 svg { width: 18px; height: 18px; }
+
+.footer-v3 {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: #A39F97;
+  padding: 0 1.5rem 2.5rem;
+}
+
+.footer-v3 a { color: #A39F97; }
+
+@media (min-width: 640px) {
+  .nav-v3__links { position: static; display: flex !important; flex-direction: row; box-shadow: none; border: none; }
+  .nav-v3__links a { border-bottom: none; padding: 0 0 0 1.8rem; }
+  .nav-v3__menu-btn { display: none; }
+}
+
+@media (max-width: 900px) {
+  .about-v3, .trails-v3 { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   Trail detail pages (v3) — map + progressive waypoint stepper
+   ============================================================ */
+
+.trail-hero-v3 {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 0;
+}
+
+.trail-hero-v3__kicker {
+  font-family: var(--font-cond);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin: 0 0 0.6rem;
+}
+
+#trailIsland {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-gray);
+  margin: 0 0 0.8rem;
+}
+
+#trailTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  line-height: 1.05;
+  margin: 0 0 1rem;
+  max-width: 22ch;
+  color: #1A1A1A;
+}
+
+#trailSummary {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 68ch;
+  color: var(--text-gray);
+}
+
+.fact-strip-v3 {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  margin: 1.8rem 0 1.6rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.fact-strip-v3 div {
+  padding: 0.8rem 1.8rem 0.8rem 0;
+  margin-right: 1.8rem;
+  border-right: 1px solid var(--line);
+}
+
+.fact-strip-v3 div:last-child { border-right: none; }
+
+.fact-strip-v3 .fact-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-gray);
+}
+
+.fact-strip-v3 .fact-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #1A1A1A;
+}
+
+.trail-note-v3 {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  background: var(--offwhite);
+  border-left: 3px solid var(--wine);
+  padding: 0.8rem 1rem;
+  margin-bottom: 2.4rem;
+}
+
+.map-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.map-shell #map {
+  height: 440px;
+  border: 1px solid var(--line);
+}
+
+.stepper-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 5rem;
+}
+
+.stepper-wrap__head {
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+
+.stepper-wrap__head h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: #1A1A1A;
+  margin: 0 0 0.8rem;
+}
+
+.stepper-wrap__head p {
+  font-family: var(--font-sans);
+  color: var(--text-gray);
+  font-size: 0.95rem;
+}
+
+.step {
+  border: 1px solid var(--line);
+  margin-bottom: -1px;
+  background: #fff;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.step--locked { display: none; }
+
+.step--revealed {
+  animation: stepIn 0.4s ease both;
+}
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.step__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.step__header:hover { background: var(--offwhite); }
+
+.step__num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--wine);
+  font-size: 1.2rem;
+  min-width: 2ch;
+}
+
+.step__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #1A1A1A;
+  flex: 1;
+}
+
+.step__toggle {
+  font-family: var(--font-sans);
+  font-size: 1.3rem;
+  color: var(--wine);
+  width: 1.4rem;
+  text-align: center;
+}
+
+.step__body {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.3rem;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.step--open .step__body {
+  max-height: 900px;
+  padding: 0 1.3rem 1.6rem;
+}
+
+.step__period {
+  font-family: var(--font-cond);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-gray);
+  margin: 0.2rem 0 1rem;
+}
+
+.step__desc {
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: #3A3A3A;
+  margin: 1.1rem 0 0;
+}
+
+/* Swipeable photo gallery */
+.gallery {
+  position: relative;
+}
+
+.gallery__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 0.6rem;
+  border-radius: 2px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.gallery__track::-webkit-scrollbar { display: none; }
+
+.gallery__slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.gallery__slide img,
+.placeholder-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(rgba(10,20,26,0.4), rgba(10,20,26,0.55)),
+    url('../assets/sea-placeholder.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  font-family: var(--font-cond, var(--font-sans));
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.45);
+  padding: 1rem;
+}
+
+.gallery__slide .placeholder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.85);
+  border: 1px solid var(--line);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #1A1A1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery__nav--prev { left: 0.5rem; }
+.gallery__nav--next { right: 0.5rem; }
+.gallery__nav:hover { background: #fff; }
+
+.back-link-v3 {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}

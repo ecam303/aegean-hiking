@@ -1,0 +1,94 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "island": "Syros",
+    "trailName": "Kastri and the City of the Dead",
+    "region": "Cyclades",
+    "center": [24.9420, 37.4720],
+    "zoom": 14,
+    "summary": "From the modern village of Chalandriani across the plateau of the largest Early Cycladic cemetery yet found, then up a steep old path to the fortified citadel of Kastri on its sea-facing cliff.",
+    "distanceKm": 4.1,
+    "elevationGainM": 180,
+    "difficulty": "Moderate",
+    "basedOn": "Follows the existing footpath linking Chalandriani village to the Kastri archaeological site (Apano Meria area); allow about 45 minutes to an hour for the Kastri leg.",
+    "note": "Coordinates are approximate placeholders for prototyping. Replace with a surveyed GPX track before publishing."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [24.9430, 37.4685],
+          [24.9410, 37.4705],
+          [24.9385, 37.4728],
+          [24.9360, 37.4748],
+          [24.9345, 37.4768]
+        ]
+      },
+      "properties": { "kind": "route" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [24.9430, 37.4685] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 1,
+        "type": "trailhead",
+        "name": "Chalandriani Village",
+        "period": "Present day",
+        "description": "A quiet village in Syros's northern Apano Meria region, giving its name to the vast prehistoric cemetery on the plateau below it, and the likely, still largely unexcavated, home of the community that used it."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [24.9400, 37.4715] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 2,
+        "type": "archaeology",
+        "name": "The Chalandriani Cemetery",
+        "period": "Early Cycladic II (c. 2700–2200 BC)",
+        "description": "More than 600 corbelled tombs have been found here, a construction style unique to Syros, and more than at any other single Early Cycladic site. Grave goods vary between clusters of tombs, hinting at social distinctions within a community that Cyprian Broodbank estimates never numbered more than a few hundred people at its peak."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [24.9385, 37.4728] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 3,
+        "type": "artifact",
+        "name": "Ships on \"Frying Pans\"",
+        "period": "Early Cycladic II (c. 2700–2200 BC)",
+        "description": "Among the grave goods found here are the famous incised clay \"frying pans,\" some engraved with long, oared boats. That same maritime imagery, ships pecked into rock rather than clay, marks the gateways of the acropolis at Vathy on Astypalaia, this trail's Dodecanese counterpart, carved by contemporaries living at the opposite end of the same sea."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [24.9360, 37.4748] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 4,
+        "type": "path",
+        "name": "The Climb to Kastri",
+        "period": "Present day",
+        "image": "assets/syros-kastri-trailhead-sign.jpg",
+        "imageCaption": "The signposted path to the Kastri prehistoric settlement.",
+        "description": "A steep, rough path leaves the plateau and climbs toward the coast. Allow around 45 minutes; there is little shade and the ground is uneven, but the settlement's defensive position becomes obvious as you climb."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [24.9345, 37.4768] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 5,
+        "type": "settlement",
+        "name": "Kastri",
+        "period": "Early Cycladic II–III, \"Kastri phase\" (c. 2400–2200 BC)",
+        "description": "A fortified citadel on a precipitous sea-facing cliff, slightly later than the main phase of the Chalandriani cemetery below. An outwork wall roughly 55 metres long, with six horseshoe-shaped bastions, an idea likely borrowed from the Asia Minor coast, defends the northern approach. Inside, one- and two-room stone houses cluster along narrow streets, and evidence of crucibles and bronze casting moulds points to a working metal shop: a settlement that needed to defend both its position and its craft."
+      }
+    }
+  ]
+}

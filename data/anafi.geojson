@@ -1,0 +1,55 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "island": "Anafi",
+    "trailName": "Placeholder Trail \u2014 Anafi",
+    "region": "Cyclades",
+    "center": [25.8025, 36.3697],
+    "zoom": 13,
+    "summary": "Placeholder text. This card and route are stand-ins for a trail on Anafi that hasn't been mapped yet \u2014 replace this summary, the route, and the waypoints below with real content.",
+    "distanceKm": 0,
+    "elevationGainM": 0,
+    "difficulty": "TBD",
+    "basedOn": "Not yet sourced \u2014 add a real route (AllTrails export, GPS track, or local path) here.",
+    "note": "This entire file is a placeholder. Coordinates are approximate and centred on Anafi only; no real trail has been plotted yet."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [25.7960, 36.3675],
+          [25.8000, 36.3690],
+          [25.8040, 36.3705],
+          [25.8080, 36.3715]
+        ]
+      },
+      "properties": { "kind": "route" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [25.7960, 36.3675] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 1,
+        "type": "trailhead",
+        "name": "Placeholder waypoint",
+        "period": "TBD",
+        "description": "Placeholder text \u2014 replace with a real starting point once the Anafi trail and its waypoints are researched."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [25.8080, 36.3715] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 2,
+        "type": "settlement",
+        "name": "Placeholder waypoint",
+        "period": "TBD",
+        "description": "Placeholder text \u2014 replace with a real endpoint or point of interest once available."
+      }
+    }
+  ]
+}

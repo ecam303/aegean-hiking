@@ -1,0 +1,93 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "island": "Astypalaia",
+    "trailName": "The Ships of Vathy",
+    "region": "Dodecanese",
+    "center": [26.4295, 36.6205],
+    "zoom": 15,
+    "summary": "A short coastal walk around the Vathy gulf, ending at the fortified Final Neolithic / Early Cycladic headland where ship carvings still catch the light at sunrise.",
+    "distanceKm": 3.4,
+    "elevationGainM": 140,
+    "difficulty": "Easy–Moderate",
+    "basedOn": "Adapted from local paths around Vathy gulf; cross-check with AllTrails 'Panagia tou Thoma – Faros – Xopetra – Drakontospilio' and local community paths before walking.",
+    "note": "Coordinates are approximate placeholders for prototyping. Replace with a surveyed GPX track before publishing."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [26.4245, 36.6185],
+          [26.4262, 36.6193],
+          [26.4278, 36.6201],
+          [26.4295, 36.6210],
+          [26.4312, 36.6218],
+          [26.4327, 36.6224]
+        ]
+      },
+      "properties": { "kind": "route" }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [26.4245, 36.6185] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 1,
+        "type": "trailhead",
+        "name": "Vathy Harbour",
+        "period": "Present day",
+        "description": "A small, sheltered fishing hamlet at the head of the gulf. Vathy's harbour has served boats for millennia: the peninsula ahead controls the narrow sea approach into the bay, which is exactly why people chose to settle and watch from it 5,000 years ago. Start here with water and sun protection; there is little shade beyond this point."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [26.4278, 36.6201] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 2,
+        "type": "geology",
+        "name": "Sedimentary Terraces",
+        "period": "Upper Jurassic – Upper Eocene",
+        "description": "The rock underfoot belongs to Astypalaia's Alpine sedimentary sequence, later reworked by metamorphism. Prehistoric toolmakers at Vathy sourced chert, basalt and other stone here for grinders, pounders and polishers, some of which travelled from further afield along the same sea routes the gulf was built to watch."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [26.4300, 36.6212] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 3,
+        "type": "archaeology",
+        "name": "Infant Burial Enclosures",
+        "period": "Final Neolithic – Early Bronze Age (c. 3300–2200 BC)",
+        "description": "Along this stretch of coast, excavators found small enclosures used for infant pot burials, a practice echoed at other Aegean and Anatolian sites of the same horizon. Their presence, alongside the fortified acropolis ahead, shows Vathy was a lived-in, cared-for community, not just a lookout post."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [26.4315, 36.6220] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 4,
+        "type": "rock-art",
+        "name": "The Ship Carvings of Cape Elliniko",
+        "period": "Final Neolithic – Early Cycladic (late 4th–early 3rd millennium BC)",
+        "description": "Where footpaths converge at the acropolis gateways, large carvings of ships, daggers and spirals were pecked into the bedrock, best seen raking-lit at sunrise. Smaller motifs nearby include human figures, footprints and checkerboard patterns. The same ship imagery appears engraved onto pottery hundreds of kilometres away at Chalandriani on Syros, this trail's Syros stop, a hint of how connected this sea really was."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [26.4327, 36.6224] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 5,
+        "type": "settlement",
+        "name": "The Acropolis of Cape Pyrgos",
+        "period": "Late 4th / early 3rd millennium BC, reoccupied 4th century BC",
+        "description": "Boulder-built circuit and retaining walls, still visible today, enclosed a citadel at the tip of the promontory. Centuries later a Hellenistic watchtower was raised on the same commanding spot, a reminder that good vantage points get reused, not reinvented, across the millennia."
+      }
+    }
+  ]
+}

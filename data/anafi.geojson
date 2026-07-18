@@ -2,16 +2,17 @@
   "type": "FeatureCollection",
   "properties": {
     "island": "Anafi",
-    "trailName": "Placeholder Trail \u2014 Anafi",
+    "trailName": "Anafi Ridge Walk",
     "region": "Cyclades",
-    "center": [25.8025, 36.3697],
+    "center": [25.812, 36.356],
     "zoom": 13,
-    "summary": "Placeholder text. This card and route are stand-ins for a trail on Anafi that hasn't been mapped yet \u2014 replace this summary, the route, and the waypoints below with real content.",
-    "distanceKm": 0,
-    "elevationGainM": 0,
-    "difficulty": "TBD",
-    "basedOn": "Not yet sourced \u2014 add a real route (AllTrails export, GPS track, or local path) here.",
-    "note": "This entire file is a placeholder. Coordinates are approximate and centred on Anafi only; no real trail has been plotted yet."
+    "summary": "A ridge walk from Ronkounas Parking to Kasteli, Agios Mamas, and the terraced slopes of Anafi, based on the supplied custom route KML.",
+    "distanceKm": 9.78,
+    "elevationGainM": 462,
+    "estimatedTime": "3.5–4 hr",
+    "difficulty": "Moderate",
+    "basedOn": "Route geometry sampled from the supplied Anafi Custom_route KML and paired with the provided waypoint list.",
+    "note": "The route line is a simplified GeoJSON trace derived from the supplied KML so the page can scale cleanly while still following the uploaded track."
   },
   "features": [
     {
@@ -19,36 +20,130 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [25.7960, 36.3675],
-          [25.8000, 36.3690],
-          [25.8040, 36.3705],
-          [25.8080, 36.3715]
+          [25.7958, 36.34949],
+          [25.79488, 36.35057],
+          [25.79632, 36.35059],
+          [25.79754, 36.35053],
+          [25.79717, 36.35151],
+          [25.79678, 36.35251],
+          [25.79713, 36.35336],
+          [25.79753, 36.35451],
+          [25.79831, 36.35504],
+          [25.7987, 36.35612],
+          [25.79931, 36.35733],
+          [25.79919, 36.35813],
+          [25.79923, 36.35915],
+          [25.79957, 36.36004],
+          [25.8006, 36.36215],
+          [25.80182, 36.36364],
+          [25.80365, 36.36349],
+          [25.80568, 36.36369],
+          [25.80831, 36.36357],
+          [25.81089, 36.36273],
+          [25.8129, 36.36207],
+          [25.81489, 36.3626],
+          [25.81733, 36.36233],
+          [25.81915, 36.36219],
+          [25.82172, 36.36241],
+          [25.8237, 36.36195],
+          [25.8252, 36.36164],
+          [25.82634, 36.36069],
+          [25.82775, 36.35977],
+          [25.82934, 36.35897],
+          [25.82974, 36.35825],
+          [25.8289, 36.35776],
+          [25.82799, 36.35715],
+          [25.82716, 36.35667],
+          [25.82625, 36.3561],
+          [25.82572, 36.3554],
+          [25.82421, 36.35479],
+          [25.82268, 36.35544],
+          [25.82116, 36.35554],
+          [25.8204, 36.35471],
+          [25.81835, 36.35448],
+          [25.81715, 36.35434],
+          [25.81619, 36.35395],
+          [25.81499, 36.35359],
+          [25.81337, 36.35329],
+          [25.81173, 36.3526],
+          [25.81089, 36.35231],
+          [25.81022, 36.35197],
+          [25.80967, 36.35147],
+          [25.80813, 36.35121],
+          [25.80689, 36.35133],
+          [25.80561, 36.35063],
+          [25.80479, 36.3507],
+          [25.80389, 36.35039],
+          [25.80285, 36.35131],
+          [25.80159, 36.35053],
+          [25.80017, 36.35023],
+          [25.79918, 36.35089],
+          [25.79762, 36.35057],
+          [25.79522, 36.35056],
+          [25.79488, 36.35036],
+          [25.7958, 36.34949]
         ]
       },
       "properties": { "kind": "route" }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [25.7960, 36.3675] },
+      "geometry": { "type": "Point", "coordinates": [25.795761, 36.349311] },
       "properties": {
         "kind": "waypoint",
         "order": 1,
         "type": "trailhead",
-        "name": "Placeholder waypoint",
-        "period": "TBD",
-        "description": "Placeholder text \u2014 replace with a real starting point once the Anafi trail and its waypoints are researched."
+        "name": "Ronkounas Parking",
+        "period": "Present day",
+        "description": "The route begins above Ronkounas beach, where a parking pull-in gives quick access to the ridge path leading inland."
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [25.8080, 36.3715] },
+      "geometry": { "type": "Point", "coordinates": [25.797674, 36.350969] },
       "properties": {
         "kind": "waypoint",
         "order": 2,
+        "type": "path",
+        "name": "Trailhead to Kasteli",
+        "period": "Present day",
+        "description": "This first ascent leaves the coast and climbs steadily toward the high ground around Kasteli."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [25.799671, 36.359165] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 3,
         "type": "settlement",
-        "name": "Placeholder waypoint",
-        "period": "TBD",
-        "description": "Placeholder text \u2014 replace with a real endpoint or point of interest once available."
+        "name": "Kasteli",
+        "period": "Geometric / earlier occupation",
+        "description": "Kasteli commands the ridge with views in every direction and preserves the remains of Anafi's ancient hilltop settlement."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [25.829776, 36.358121] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 4,
+        "type": "archaeology",
+        "name": "Agios Mamas",
+        "period": "Classical temple reused as church",
+        "description": "At Agios Mamas the remains of an older sanctuary survive beneath the later church, tying the route into Anafi's long sacred landscape."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [25.810834, 36.352147] },
+      "properties": {
+        "kind": "waypoint",
+        "order": 5,
+        "type": "archaeology",
+        "name": "Ancient Terracing",
+        "period": "Ancient agricultural landscape",
+        "description": "Stone-built terraces on the slope record sustained cultivation and land management across Anafi's dry uplands."
       }
     }
   ]

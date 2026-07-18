@@ -4,14 +4,15 @@
     "island": "Syros",
     "trailName": "Kastri and the City of the Dead",
     "region": "Cyclades",
-    "center": [24.9420, 37.4720],
+    "center": [24.9349, 37.4839],
     "zoom": 14,
-    "summary": "From the modern village of Chalandriani across the plateau of the largest Early Cycladic cemetery yet found, then up a steep old path to the fortified citadel of Kastri on its sea-facing cliff.",
-    "distanceKm": 4.1,
-    "elevationGainM": 180,
+    "summary": "A closed-loop walk linking the Catholic Shrine of the Holy Unmercenaries, the Jadeite source, Chalandriani, and the fortified prehistoric headland of Kastri.",
+    "distanceKm": 7.01,
+    "elevationGainM": 410,
+    "estimatedTime": "2.5–3 hr",
     "difficulty": "Moderate",
-    "basedOn": "Follows the existing footpath linking Chalandriani village to the Kastri archaeological site (Apano Meria area); allow about 45 minutes to an hour for the Kastri leg.",
-    "note": "Coordinates are approximate placeholders for prototyping. Replace with a surveyed GPX track before publishing."
+    "basedOn": "Route geometry is derived from the supplied Syros_Custom_route.KML closed loop and the waypoint coordinates provided for Kastri, Chalandriani, Jadeite, and the Catholic shrine.",
+    "note": "This version uses the uploaded closed-loop KML rather than the earlier prototype line, so the Leaflet route now follows the intended Kastri circuit."
   },
   "features": [
     {
@@ -19,75 +20,104 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [24.9430, 37.4685],
-          [24.9410, 37.4705],
-          [24.9385, 37.4728],
-          [24.9360, 37.4748],
-          [24.9345, 37.4768]
+          [24.93343, 37.48018],
+          [24.9341, 37.48103],
+          [24.93445, 37.48213],
+          [24.93519, 37.48243],
+          [24.93581, 37.48253],
+          [24.93574, 37.48355],
+          [24.93521, 37.48422],
+          [24.93433, 37.48479],
+          [24.93337, 37.48511],
+          [24.93335, 37.4859],
+          [24.93431, 37.48611],
+          [24.93524, 37.48651],
+          [24.93615, 37.48709],
+          [24.93697, 37.48774],
+          [24.93735, 37.48848],
+          [24.93781, 37.48926],
+          [24.93801, 37.48985],
+          [24.93771, 37.49038],
+          [24.93732, 37.49112],
+          [24.93652, 37.4907],
+          [24.93602, 37.49113],
+          [24.93553, 37.49139],
+          [24.93485, 37.49116],
+          [24.93449, 37.49075],
+          [24.93735, 37.49085],
+          [24.93803, 37.49082],
+          [24.93767, 37.48916],
+          [24.93723, 37.48824],
+          [24.93646, 37.4872],
+          [24.93549, 37.48672],
+          [24.93402, 37.48607],
+          [24.93353, 37.48482],
+          [24.9358, 37.4838],
+          [24.93571, 37.48196],
+          [24.93464, 37.48273],
+          [24.93407, 37.48265],
+          [24.93439, 37.48163],
+          [24.93384, 37.48044],
+          [24.93294, 37.47894],
+          [24.933, 37.47799],
+          [24.93229, 37.47706],
+          [24.93135, 37.47585],
+          [24.93133, 37.47654],
+          [24.9319, 37.47743],
+          [24.93146, 37.47848],
+          [24.93093, 37.47973],
+          [24.93128, 37.48041],
+          [24.93343, 37.48018]
         ]
       },
       "properties": { "kind": "route" }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [24.9430, 37.4685] },
+      "geometry": { "type": "Point", "coordinates": [24.931331, 37.480323] },
       "properties": {
         "kind": "waypoint",
         "order": 1,
         "type": "trailhead",
-        "name": "Chalandriani Village",
-        "period": "Present day",
-        "description": "A quiet village in Syros's northern Apano Meria region, giving its name to the vast prehistoric cemetery on the plateau below it, and the likely, still largely unexcavated, home of the community that used it."
+        "name": "Catholic Shrine of the Holy Unmercenaries",
+        "period": "Historic chapel",
+        "description": "The loop begins at the Catholic Shrine of the Holy Unmercenaries, a high starting point overlooking the northern landscape of Apano Meria."
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [24.9400, 37.4715] },
+      "geometry": { "type": "Point", "coordinates": [24.936467, 37.487182] },
       "properties": {
         "kind": "waypoint",
         "order": 2,
-        "type": "archaeology",
-        "name": "The Chalandriani Cemetery",
-        "period": "Early Cycladic II (c. 2700–2200 BC)",
-        "description": "More than 600 corbelled tombs have been found here, a construction style unique to Syros, and more than at any other single Early Cycladic site. Grave goods vary between clusters of tombs, hinting at social distinctions within a community that Cyprian Broodbank estimates never numbered more than a few hundred people at its peak."
+        "type": "artifact",
+        "name": "Jadeite",
+        "period": "Prehistoric material source",
+        "description": "This stop marks the jadeite source associated with Syros's Early Bronze Age communities and their long-distance material connections."
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [24.9385, 37.4728] },
+      "geometry": { "type": "Point", "coordinates": [24.937677, 37.488961] },
       "properties": {
         "kind": "waypoint",
         "order": 3,
-        "type": "artifact",
-        "name": "Ships on \"Frying Pans\"",
+        "type": "archaeology",
+        "name": "Chalandriani",
         "period": "Early Cycladic II (c. 2700–2200 BC)",
-        "description": "Among the grave goods found here are the famous incised clay \"frying pans,\" some engraved with long, oared boats. That same maritime imagery, ships pecked into rock rather than clay, marks the gateways of the acropolis at Vathy on Astypalaia, this trail's Dodecanese counterpart, carved by contemporaries living at the opposite end of the same sea."
+        "description": "Chalandriani is one of the most important Early Cycladic cemetery landscapes in the Aegean, spread across the plateau below the ridge route."
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [24.9360, 37.4748] },
+      "geometry": { "type": "Point", "coordinates": [24.934136, 37.490502] },
       "properties": {
         "kind": "waypoint",
         "order": 4,
-        "type": "path",
-        "name": "The Climb to Kastri",
-        "period": "Present day",
-        "image": "assets/syros-kastri-trailhead-sign.jpg",
-        "imageCaption": "The signposted path to the Kastri prehistoric settlement.",
-        "description": "A steep, rough path leaves the plateau and climbs toward the coast. Allow around 45 minutes; there is little shade and the ground is uneven, but the settlement's defensive position becomes obvious as you climb."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [24.9345, 37.4768] },
-      "properties": {
-        "kind": "waypoint",
-        "order": 5,
         "type": "settlement",
         "name": "Kastri",
         "period": "Early Cycladic II–III, \"Kastri phase\" (c. 2400–2200 BC)",
-        "description": "A fortified citadel on a precipitous sea-facing cliff, slightly later than the main phase of the Chalandriani cemetery below. An outwork wall roughly 55 metres long, with six horseshoe-shaped bastions, an idea likely borrowed from the Asia Minor coast, defends the northern approach. Inside, one- and two-room stone houses cluster along narrow streets, and evidence of crucibles and bronze casting moulds points to a working metal shop: a settlement that needed to defend both its position and its craft."
+        "description": "Kastri is the fortified prehistoric headland settlement above the sea, the culminating archaeological point of the loop and the site that gives the trail its focus."
       }
     }
   ]

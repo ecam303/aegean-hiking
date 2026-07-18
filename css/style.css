@@ -13,7 +13,7 @@
   --sea-soft: #1C3E4E;
   --ochre: #C1873A;
   --ochre-deep: #8F5F1F;
-  --rust: #A8502E;
+  --rust: #5cb7ce;
   --moss: #6B7654;
 
   --font-display: 'Fraunces', 'Georgia', serif;
@@ -555,8 +555,8 @@ main {
    ============================================================ */
 
 :root {
-  --wine: #7B2456;
-  --wine-dark: #5C1A40;
+  --wine: #6a92ad;
+  --wine-dark: #1a215c;
   --offwhite: #FFFFFF;
   --text-gray: #767676;
   --line: #E7E3DC;
@@ -658,8 +658,8 @@ main {
 
 .nav-v3 {
   background-color: transparent;
-  background-image: linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.86)), url('../assets/boats_all.png');
-  background-repeat: no-repeat;
+  background-image: linear-gradient(rgba(133, 119, 134, 0.767), rgba(255,255,255,0.86)), url('../assets/boats_all.png');
+  background-repeat: repeat;
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid rgba(255,255,255,0.5);

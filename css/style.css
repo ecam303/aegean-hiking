@@ -555,12 +555,33 @@ main {
    ============================================================ */
 
 :root {
-  --wine: #6a92ad;
+  --wine: #1C53A3;
   --wine-dark: #1a215c;
   --offwhite: #FFFFFF;
   --text-gray: #767676;
   --line: #E7E3DC;
   --font-sans: 'Inter', -apple-system, sans-serif;
+}
+
+.index-v3 {
+  position: relative;
+  background-color: #FFFFFF;
+  background-image: url('../assets/blue5-bgwhite.png'), url('../assets/blue4-bgwhite.png');
+  background-repeat: no-repeat, no-repeat;
+  background-size: min(60vw, 900px) auto, min(54vw, 820px) auto;
+  background-position: right -390px top -42px, left -240px bottom -260px;
+  background-attachment: fixed, fixed;
+  overflow-x: clip;
+}
+
+.index-v3 .nav-v3 {
+  background: transparent;
+  background-image: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.index-v3 .nav-v3::before {
+  display: none;
 }
 
 .site-v3 h1, .site-v3 h2, .site-v3 h3 {
@@ -658,7 +679,7 @@ main {
 
 .nav-v3 {
   background-color: transparent;
-  background-image: linear-gradient(rgba(133, 119, 134, 0.767), rgba(255,255,255,0.86)), url('../assets/boats_all.png');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.767), rgba(255,255,255,0.86)), url('../assets/boats_all.png');
   background-repeat: repeat;
   background-size: cover;
   background-position: center;
@@ -739,7 +760,11 @@ main {
 }
 
 /* About the Project — icon list (boat sketches stand in for the
-   template's line icons) */
+  template's line icons) */
+.section-v3#about {
+  background: #FFFFFF;
+}
+
 .about-v3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -753,10 +778,16 @@ main {
   height: 74px;
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-bottom: 1.1rem;
 }
 
-.about-v3__icon img { max-height: 64px; max-width: 130px; object-fit: contain; }
+.about-v3__icon img {
+  max-height: 64px;
+  max-width: 130px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(84%) saturate(1365%) hue-rotate(194deg) brightness(92%) contrast(90%);
+}
 
 .about-v3__item h3 { font-size: 1.25rem; margin: 0 0 0.6rem; }
 
@@ -890,6 +921,11 @@ main {
 
 @media (max-width: 900px) {
   .about-v3, .trails-v3 { grid-template-columns: 1fr; }
+
+  .index-v3 {
+    background-size: min(88vw, 620px) auto, min(76vw, 520px) auto;
+    background-position: right -300px top -34px, left -185px bottom -210px;
+  }
 }
 
 /* ============================================================

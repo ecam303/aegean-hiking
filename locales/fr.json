@@ -1,0 +1,124 @@
+{
+  "common": {
+    "nav": {
+      "about": "À propos",
+      "trails": "Sentiers",
+      "allTrails": "Tous les sentiers",
+      "contact": "Contact"
+    },
+    "labels": {
+      "language": "Langue",
+      "trailLog": "Carnet de sentier",
+      "startOfTrail": "Départ du sentier",
+      "waypoints": "Étapes",
+      "currentWaypoint": "Étape actuelle",
+      "location": "Position :",
+      "next": "Suivant :",
+      "distance": "Distance :",
+      "waitingGps": "En attente du GPS...",
+      "unknown": "Inconnu",
+      "gpsUnavailable": "Géolocalisation indisponible"
+    },
+    "fact": {
+      "distance": "Distance",
+      "elevation": "Dénivelé",
+      "time": "Temps estimé",
+      "difficulty": "Difficulté"
+    },
+    "buttons": {
+      "viewTrail": "Voir le sentier",
+      "backToTrails": "<- Retour à tous les sentiers"
+    },
+    "gallery": {
+      "prevImage": "Image précédente",
+      "nextImage": "Image suivante",
+      "view": "vue",
+      "detail": "détail",
+      "context": "contexte"
+    },
+    "units": {
+      "kilometers": "km",
+      "meters": "m"
+    },
+    "words": {
+      "trail": "Sentier"
+    },
+    "errors": {
+      "gpsErrorPrefix": "Erreur GPS :"
+    }
+  },
+  "index": {
+    "hero": {
+      "title": "Geo-Archaeo Hiking",
+      "subtitle": "Explorez les îles de l'Égée et reliez nature et histoire",
+      "cta": "Voir les sentiers"
+    },
+    "about": {
+      "title": "À propos du projet",
+      "intro": "Cette plateforme propose des itinéraires pour trois randonnées géo-archéologiques, chaque parcours racontant une part de l'histoire de l'île et reliant des zones géologiques uniques à des sites archéologiques connus.",
+      "card1": {
+        "title": "Sites archéologiques et caractéristiques géologiques",
+        "text": "Texte provisoire décrivant cet aspect du projet. Remplacez-le par un contenu réel sur la recherche, les sentiers ou la méthodologie."
+      },
+      "card2": {
+        "title": "Explorer les îles",
+        "text": "Ne vous contentez pas de visiter les îles - parcourez leur riche histoire et leurs formations géologiques singulières pour mieux les comprendre."
+      },
+      "card3": {
+        "title": "Notre impact",
+        "text": "En créant des récits de paysages et de patrimoines avec les communautés de l'archipel, le projet vise à transformer notre manière d'interagir avec notre environnement et à mieux comprendre l'impact direct de nos actions - nos visites sont temporaires, mais nos effets sur l'environnement et le paysage peuvent être durables."
+      }
+    },
+    "trails": {
+      "title": "Sentiers et récits",
+      "intro": "Trois randonnées géo-archéologiques, chacune associant un itinéraire de marche au paysage et à l'histoire locale.",
+      "anafi": {
+        "badge": "Modéré",
+        "time": "1.5-2 h",
+        "desc": "Texte provisoire - courte description du sentier d'Anafi, de son tracé et de ses points d'intérêt."
+      },
+      "ios": {
+        "badge": "Facile",
+        "time": "1-1.5 h",
+        "desc": "Texte provisoire - courte description du sentier d'Ios, de son tracé et de ses points d'intérêt."
+      },
+      "syros": {
+        "badge": "Modéré",
+        "time": "2-2.5 h",
+        "desc": "Texte provisoire - courte description du sentier de Syros, de son tracé et de ses points d'intérêt."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "funding": "Financé par la bourse doctorale FNRS-FRESH."
+    },
+    "footer": {
+      "prefix": "Copyright 2026 Geo-Archaeo Hiking. Prototype de terrain PhD open source.",
+      "builtWith": "Construit avec"
+    }
+  },
+  "trail": {
+    "sidebar": {
+      "ios": {
+        "headline": "Port d'Ormos",
+        "copy": "Commencez au port principal de l'île puis suivez le sentier pavé restauré vers les terrasses de l'âge du Bronze de Skarkos. Utilisez le menu des étapes pour passer rapidement d'un point à l'autre sur la carte."
+      },
+      "syros": {
+        "headline": "Départ de Syros",
+        "copy": "Commencez au départ côtier de l'île et suivez l'itinéraire historique de crête. Utilisez le menu des étapes pour passer d'un arrêt à l'autre et consulter les images contextuelles."
+      },
+      "anafi": {
+        "headline": "Départ d'Anafi",
+        "copy": "Commencez au départ côtier et suivez le chemin de crête vers les terrasses de l'âge du Bronze. Utilisez le menu des étapes pour parcourir l'itinéraire point par point."
+      }
+    },
+    "defaults": {
+      "detailText": "Description provisoire du point sélectionné."
+    },
+    "footer": {
+      "prefix": "Les coordonnées du sentier sont des prototypes approximatifs.",
+      "builtWith": "Construit avec",
+      "and": "et"
+    }
+  }
+}

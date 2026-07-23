@@ -12,6 +12,13 @@ let lastPosition = null;
 let locationWatchId = null;
 let routeLayer = null;
 
+function tr(key, fallback) {
+  if (window.i18n && typeof window.i18n.t === 'function') {
+    return window.i18n.t(key, fallback);
+  }
+  return fallback;
+}
+
 function setText(id, value) {
   const element = document.getElementById(id);
   if (element) element.textContent = value;
@@ -58,10 +65,13 @@ function renderGallery(images) {
 function getGalleryImagesForWaypoint(name) {
   const images = getWaypointImages(TRAIL_NAME, name);
   if (images.length) return images;
+  const viewLabel = tr('common.gallery.view', 'view');
+  const detailLabel = tr('common.gallery.detail', 'detail');
+  const contextLabel = tr('common.gallery.context', 'context');
   return [
-    { src: TRAIL_PLACEHOLDER_IMAGE, caption: `${name} - view`, attribution: '' },
-    { src: TRAIL_PLACEHOLDER_IMAGE, caption: `${name} - detail`, attribution: '' },
-    { src: TRAIL_PLACEHOLDER_IMAGE, caption: `${name} - context`, attribution: '' }
+    { src: TRAIL_PLACEHOLDER_IMAGE, caption: `${name} - ${viewLabel}`, attribution: '' },
+    { src: TRAIL_PLACEHOLDER_IMAGE, caption: `${name} - ${detailLabel}`, attribution: '' },
+    { src: TRAIL_PLACEHOLDER_IMAGE, caption: `${name} - ${contextLabel}`, attribution: '' }
   ];
 }
 
@@ -91,7 +101,7 @@ function metersBetween(lat1, lng1, lat2, lng2) {
 
 function refreshLocationPanel() {
   const activeWaypoint = waypointFeatures.find(waypoint => waypoint.properties.order === currentOrder) || waypointFeatures[0];
-  setText('nextWaypointName', activeWaypoint ? activeWaypoint.properties.name : 'Unknown');
+  setText('nextWaypointName', activeWaypoint ? activeWaypoint.properties.name : tr('common.labels.unknown', 'Unknown'));
 
   if (!lastPosition || !activeWaypoint) {
     setText('distanceToNext', '—');
@@ -100,7 +110,7 @@ function refreshLocationPanel() {
 
   const { latitude, longitude } = lastPosition.coords;
   const [lng, lat] = activeWaypoint.geometry.coordinates;
-  setText('distanceToNext', `${Math.round(metersBetween(latitude, longitude, lat, lng))} m`);
+  setText('distanceToNext', `${Math.round(metersBetween(latitude, longitude, lat, lng))} ${tr('common.units.meters', 'm')}`);
 }
 
 function updateLocationPanel(position) {
@@ -140,7 +150,7 @@ function updateTrackingMarkers(position) {
 
 function startLocationTracking() {
   if (!navigator.geolocation) {
-    setText('locationStatus', 'Geolocation unavailable');
+    setText('locationStatus', tr('common.labels.gpsUnavailable', 'Geolocation unavailable'));
     return;
   }
 
@@ -148,7 +158,7 @@ function startLocationTracking() {
     updateLocationPanel(position);
     updateTrackingMarkers(position);
   }, error => {
-    setText('locationStatus', `GPS error: ${error.message}`);
+    setText('locationStatus', `${tr('common.errors.gpsErrorPrefix', 'GPS error:')} ${error.message}`);
   }, {
     enableHighAccuracy: true,
     maximumAge: 5000,
@@ -169,7 +179,7 @@ function focusWaypoint(order) {
   setText('detailTitle', waypoint.properties.name);
   setText(
     'detailText',
-    waypoint.properties.description || 'Placeholder text about this waypoint and its importance along the route.'
+    waypoint.properties.description || tr('trail.defaults.detailText', 'Placeholder text about this waypoint and its importance along the route.')
   );
 
   renderGallery(getGalleryImagesForWaypoint(waypoint.properties.name));
@@ -193,12 +203,12 @@ function renderNav() {
 }
 
 function applyTrailMeta(props) {
-  document.title = `${props.island || TRAIL_NAME} Trail — Geo-Archaeo Hiking`;
+  document.title = `${props.island || TRAIL_NAME} ${tr('common.words.trail', 'Trail')} — Geo-Archaeo Hiking`;
   setText('trailIsland', props.island || TRAIL_NAME);
-  setText('trailTitle', props.trailName || `${TRAIL_NAME} Trail`);
+  setText('trailTitle', props.trailName || `${TRAIL_NAME} ${tr('common.words.trail', 'Trail')}`);
   setText('trailSummary', props.summary || '');
-  setText('statDistance', props.distanceKm ? `${Number(props.distanceKm).toFixed(2)} km` : '');
-  setText('statGain', props.elevationGainM ? `${props.elevationGainM} m` : '');
+  setText('statDistance', props.distanceKm ? `${Number(props.distanceKm).toFixed(2)} ${tr('common.units.kilometers', 'km')}` : '');
+  setText('statGain', props.elevationGainM ? `${props.elevationGainM} ${tr('common.units.meters', 'm')}` : '');
   setText('statTime', props.estimatedTime || '');
   setText('statDifficulty', props.difficulty || '');
   setText('trailNote', props.note || '');
@@ -239,7 +249,10 @@ function fitTrailBounds(route, data) {
 
 async function loadTrail() {
   const response = await fetch(TRAIL_DATA_FILE);
-  const data = await response.json();
+  let data = await response.json();
+  if (window.i18n && typeof window.i18n.translateTrailData === 'function') {
+    data = await window.i18n.translateTrailData(data, window.TRAIL_ISLAND);
+  }
   const props = data.properties || {};
   const route = data.features.find(item => item.properties.kind === 'route');
 
@@ -286,11 +299,22 @@ async function loadTrail() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  if (window.i18n && typeof window.i18n.init === 'function') {
+    await window.i18n.init();
+  }
+
   await loadImageAttribs();
   window.scrollTo(0, 0);
   initMap();
   await loadTrail();
   startLocationTracking();
+
+  window.addEventListener('languagechange', async event => {
+    if (event.detail && event.detail.initial) return;
+    if (!trailMap) return;
+    await loadTrail();
+    refreshLocationPanel();
+  });
 
   document.getElementById('galleryPrev')?.addEventListener('click', () => scrollGallery(-1));
   document.getElementById('galleryNext')?.addEventListener('click', () => scrollGallery(1));

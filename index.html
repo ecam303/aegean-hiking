@@ -20,9 +20,20 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <ul class="nav-v3__links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#trails">Trails</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" data-i18n="common.nav.about">About</a></li>
+      <li><a href="#trails" data-i18n="common.nav.trails">Trails</a></li>
+      <li><a href="#contact" data-i18n="common.nav.contact">Contact</a></li>
+      <li>
+        <label class="lang-switcher" for="languageSelectIndex">
+          <span data-i18n="common.labels.language">Language</span>
+          <select id="languageSelectIndex" class="lang-select" aria-label="Language">
+            <option value="en">English</option>
+            <option value="el">Eλληνικά</option>
+            <option value="fr">Français</option>
+            <option value="nl">Nederlands</option>
+          </select>
+        </label>
+      </li>
     </ul>
   </div>
 </nav>
@@ -30,34 +41,34 @@
 <header class="hero-v3">
   <div class="hero-v3__inner">
     <svg class="wave-divider on-dark" width="60" height="16" viewBox="0 0 60 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 Q10 2 18 8 T34 8 T50 8 T58 8"/></svg>
-    <h1>Geo-Archaeo Hiking</h1>
-    <p>Explore the Aegean islands and connect with nature and history</p>
-    <a href="#trails" class="btn-wine">View Trails</a>
+    <h1 data-i18n="index.hero.title">Geo-Archaeo Hiking</h1>
+    <p data-i18n="index.hero.subtitle">Explore the Aegean islands and connect with nature and history</p>
+    <a href="#trails" class="btn-wine" data-i18n="index.hero.cta">View Trails</a>
   </div>
 </header>
 
 <section class="section-v3" id="about">
   <div class="section-v3__inner">
     <div class="section-v3__head">
-      <h2>About the Project</h2>
-      <p>This is a platform hosting itineraries for three geo-archaeo hiking trails, with each trail telling part of the island’s history, linking unique geological areas and known archaeological sites.</p>
+      <h2 data-i18n="index.about.title">About the Project</h2>
+      <p data-i18n="index.about.intro">This is a platform hosting itineraries for three geo-archaeo hiking trails, with each trail telling part of the island’s history, linking unique geological areas and known archaeological sites.</p>
       <svg class="wave-divider" width="60" height="16" viewBox="0 0 60 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 Q10 2 18 8 T34 8 T50 8 T58 8"/></svg>
     </div>
     <div class="about-v3">
       <div class="about-v3__item">
         <div class="about-v3__icon"><img src="assets/boat-1.png" alt="Line sketch of a ship, motif one"></div>
-        <h3>Archaeological Sites & Geological Features</h3>
-        <p>Placeholder text describing this aspect of the project. Replace with real copy about the research, the trails, or the methodology.</p>
+        <h3 data-i18n="index.about.card1.title">Archaeological Sites & Geological Features</h3>
+        <p data-i18n="index.about.card1.text">Placeholder text describing this aspect of the project. Replace with real copy about the research, the trails, or the methodology.</p>
       </div>
       <div class="about-v3__item">
         <div class="about-v3__icon"><img src="assets/boat-2.png" alt="Line sketch of a ship, motif two"></div>
-        <h3>Exploring the Islands</h3>
-        <p>Don't just visit the islands – walk your way through their rich history and unique geological formations and understand them.</p>
+        <h3 data-i18n="index.about.card2.title">Exploring the Islands</h3>
+        <p data-i18n="index.about.card2.text">Don't just visit the islands - walk your way through their rich history and unique geological formations and understand them.</p>
       </div>
       <div class="about-v3__item">
         <div class="about-v3__icon"><img src="assets/boat-3.png" alt="Line sketch of a ship, motif three"></div>
-        <h3>Our Impact</h3>
-        <p>By creating narratives of landscapes and heritage sites with the communities in the archipelago, the project aims to influence the way we engage with our surroundings and to gain an understanding of the direct impact that our actions have – that while our visits are temporary, our actions on the environment and in the landscape can be permanent.</p>
+        <h3 data-i18n="index.about.card3.title">Our Impact</h3>
+        <p data-i18n="index.about.card3.text">By creating narratives of landscapes and heritage sites with the communities in the archipelago, the project aims to influence the way we engage with our surroundings and to gain an understanding of the direct impact that our actions have - that while our visits are temporary, our actions on the environment and in the landscape can be permanent.</p>
       </div>
     </div>
   </div>
@@ -66,8 +77,8 @@
 <section class="section-v3 alt" id="trails">
   <div class="section-v3__inner">
     <div class="section-v3__head">
-      <h2>Trails and Stories</h2>
-      <p>Three geo-archaeological hiking trails, each pairing a walking route with the landscape and history along it.</p>
+      <h2 data-i18n="index.trails.title">Trails and Stories</h2>
+      <p data-i18n="index.trails.intro">Three geo-archaeological hiking trails, each pairing a walking route with the landscape and history along it.</p>
       <svg class="wave-divider" width="60" height="16" viewBox="0 0 60 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 Q10 2 18 8 T34 8 T50 8 T58 8"/></svg>
     </div>
     <div class="trails-v3">
@@ -77,12 +88,12 @@
         <div class="trail-v3-card__body">
           <h3>Anafi</h3>
           <div class="trail-v3-card__meta">
-            <span class="badge-dark">Moderate</span>
+            <span class="badge-dark" data-i18n="index.trails.anafi.badge">Moderate</span>
             <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Anafi, Cyclades</span>
-            <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>1.5&ndash;2 hrs</span>
+            <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span data-i18n="index.trails.anafi.time">1.5&ndash;2 hrs</span></span>
           </div>
-          <p class="desc">Placeholder text &mdash; a short description of the Anafi trail, its route and its points of interest goes here.</p>
-          <a href="trail-anafi.html" class="btn-wine">View Trail</a>
+          <p class="desc" data-i18n="index.trails.anafi.desc">Placeholder text &mdash; a short description of the Anafi trail, its route and its points of interest goes here.</p>
+          <a href="trail-anafi.html" class="btn-wine" data-i18n="common.buttons.viewTrail">View Trail</a>
         </div>
       </article>
 
@@ -91,12 +102,12 @@
         <div class="trail-v3-card__body">
           <h3>Ios</h3>
           <div class="trail-v3-card__meta">
-            <span class="badge-dark">Easy</span>
+            <span class="badge-dark" data-i18n="index.trails.ios.badge">Easy</span>
             <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Ios, Cyclades</span>
-            <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>1&ndash;1.5 hrs</span>
+            <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span data-i18n="index.trails.ios.time">1&ndash;1.5 hrs</span></span>
           </div>
-          <p class="desc">Placeholder text &mdash; a short description of the Ios trail, its route and its points of interest goes here.</p>
-          <a href="trail-ios.html" class="btn-wine">View Trail</a>
+          <p class="desc" data-i18n="index.trails.ios.desc">Placeholder text &mdash; a short description of the Ios trail, its route and its points of interest goes here.</p>
+          <a href="trail-ios.html" class="btn-wine" data-i18n="common.buttons.viewTrail">View Trail</a>
         </div>
       </article>
 
@@ -105,12 +116,12 @@
         <div class="trail-v3-card__body">
           <h3>Syros</h3>
           <div class="trail-v3-card__meta">
-            <span class="badge-dark">Moderate</span>
+            <span class="badge-dark" data-i18n="index.trails.syros.badge">Moderate</span>
             <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Syros, Cyclades</span>
-            <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>2&ndash;2.5 hrs</span>
+            <span class="meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span data-i18n="index.trails.syros.time">2&ndash;2.5 hrs</span></span>
           </div>
-          <p class="desc">Placeholder text &mdash; a short description of the Syros trail, its route and its points of interest goes here.</p>
-          <a href="trail-syros.html" class="btn-wine">View Trail</a>
+          <p class="desc" data-i18n="index.trails.syros.desc">Placeholder text &mdash; a short description of the Syros trail, its route and its points of interest goes here.</p>
+          <a href="trail-syros.html" class="btn-wine" data-i18n="common.buttons.viewTrail">View Trail</a>
         </div>
       </article>
 
@@ -121,8 +132,8 @@
 <section class="section-v3" id="contact">
   <div class="section-v3__inner">
     <div class="section-v3__head">
-      <h2>Contact</h2>
-      <p>Funded by the FNRS-FRESH PhD Grant.</p>
+      <h2 data-i18n="index.contact.title">Contact</h2>
+      <p data-i18n="index.contact.funding">Funded by the FNRS-FRESH PhD Grant.</p>
       <svg class="wave-divider" width="60" height="16" viewBox="0 0 60 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8 Q10 2 18 8 T34 8 T50 8 T58 8"/></svg>
     </div>
     <div class="contact-v3">
@@ -140,11 +151,13 @@
 </section>
 
 <footer class="footer-v3">
-  <p>&copy; 2026 Geo-Archaeo Hiking. Open-source PhD field prototype. Built with
+  <p><span data-i18n="index.footer.prefix">&copy; 2026 Geo-Archaeo Hiking. Open-source PhD field prototype.</span> <span data-i18n="index.footer.builtWith">Built with</span>
     <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a> and
     <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">&copy; OpenStreetMap contributors</a>.
   </p>
 </footer>
+
+<script src="js/i18n.js"></script>
 
 <script>
   const menuToggle = document.getElementById("menuToggle");
@@ -153,6 +166,8 @@
     const isOpen = navLinks.classList.toggle("open");
     menuToggle.setAttribute("aria-expanded", isOpen);
   });
+
+  window.i18n.init();
 </script>
 
 </body>

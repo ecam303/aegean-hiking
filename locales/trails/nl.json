@@ -1,0 +1,103 @@
+{
+  "ios": {
+    "properties": {
+      "trailName": "De terrassen van Skarkos",
+      "summary": "Vanaf de haven van Ormos leidt een gerestaureerd stenen pad omhoog naar Skarkos, de best bewaarde nederzetting uit de Vroege Bronstijd op de Cycladen, en daarna naar het museum met de vondsten.",
+      "difficulty": "Makkelijk",
+      "estimatedTime": "2.5-3 uur",
+      "basedOn": "Het traject volgt het bestaande verharde toegangspad naar de archeologische site van Skarkos. Controleer dit met het lokale 'Ios Paths'-netwerk voordat je gaat wandelen.",
+      "note": "De coördinaten zijn benaderende prototypes. Vervang ze door een ingemeten GPX-track vóór publicatie."
+    },
+    "waypoints": {
+      "1": {
+        "name": "Haven van Ormos",
+        "period": "Huidige kustzone",
+        "description": "De route start in de haven, historisch een belangrijke aankomstplek voor het eiland."
+      },
+      "2": {
+        "name": "Pad naar Skarkos",
+        "period": "Moderne padrestauratie",
+        "description": "Deze eerste klim volgt het gerestaureerde stenen pad dat de kust met de hoger gelegen zone van Skarkos verbindt."
+      },
+      "3": {
+        "name": "Skarkos",
+        "period": "Vroege Bronstijd",
+        "description": "Skarkos is een van de belangrijkste en best bewaarde prehistorische nederzettingen van de Cycladen."
+      },
+      "4": {
+        "name": "Archeologisch museum van Ios",
+        "period": "Moderne presentatie",
+        "description": "In het museum worden vondsten uit Skarkos getoond die het dagelijks leven en uitwisselingsnetwerken uit die periode verduidelijken."
+      }
+    }
+  },
+  "syros": {
+    "properties": {
+      "trailName": "Kastri en de stad van de doden",
+      "summary": "Een luswandeling langs het katholieke heiligdom van de Heilige Onbaatzuchtigen, de jadeietbron, Chalandriani en de versterkte prehistorische landtong van Kastri.",
+      "difficulty": "Gemiddeld",
+      "estimatedTime": "2.5-3 uur",
+      "basedOn": "De routegeometrie is afgeleid van de aangeleverde Syros_Custom_route.KML-lus en de waypointcoördinaten voor Kastri, Chalandriani, jadeiet en het katholieke heiligdom.",
+      "note": "Deze versie gebruikt de geuploade KML-lus in plaats van de eerdere prototype-lijn, zodat de Leaflet-route het beoogde Kastri-circuit volgt."
+    },
+    "waypoints": {
+      "1": {
+        "name": "Katholiek heiligdom van de Heilige Onbaatzuchtigen",
+        "period": "Historische kapel",
+        "description": "De lus start bij het katholieke heiligdom van de Heilige Onbaatzuchtigen, een hoog startpunt met uitzicht over Apano Meria."
+      },
+      "2": {
+        "name": "Jadeiet",
+        "period": "Prehistorische materiaalbron",
+        "description": "Deze stop markeert de jadeietbron die verbonden is met de Vroege Bronstijdgemeenschappen op Syros en hun langeafstandsroutes."
+      },
+      "3": {
+        "name": "Chalandriani",
+        "period": "Vroeg-Cycladisch II (ca. 2700-2200 v.Chr.)",
+        "description": "Chalandriani is een van de belangrijkste Vroeg-Cycladische begraaflandschappen in de Egeïsche wereld, verspreid over het plateau onder de ruglijn."
+      },
+      "4": {
+        "name": "Kastri",
+        "period": "Vroeg-Cycladisch II-III, 'Kastri-fase' (ca. 2400-2200 v.Chr.)",
+        "description": "Kastri is de versterkte prehistorische landtongnederzetting boven zee, het belangrijkste archeologische eindpunt van de lus."
+      }
+    }
+  },
+  "anafi": {
+    "properties": {
+      "trailName": "Rugwandeling op Anafi",
+      "summary": "Rugroute van Ronkounas Parking naar Kasteli, Agios Mamas en de terrashellingen van Anafi, gebaseerd op de aangeleverde custom route KML.",
+      "difficulty": "Gemiddeld",
+      "estimatedTime": "3.5-4 uur",
+      "basedOn": "De routegeometrie is bemonsterd uit de aangeleverde Anafi Custom_route KML en gekoppeld aan de waypointlijst.",
+      "note": "De routelijn is een vereenvoudigde GeoJSON-trace op basis van de aangeleverde KML, zodat de pagina schaalbaar blijft en toch de geüploade track volgt."
+    },
+    "waypoints": {
+      "1": {
+        "name": "Ronkounas Parking",
+        "period": "Heden",
+        "description": "De route start boven het strand van Ronkounas, waar een parkeerstrook snelle toegang geeft tot het binnenlandse rugpad."
+      },
+      "2": {
+        "name": "Startpunt naar Kasteli",
+        "period": "Heden",
+        "description": "Deze eerste klim verlaat de kust en stijgt geleidelijk naar het hogere terrein rond Kasteli."
+      },
+      "3": {
+        "name": "Kasteli",
+        "period": "Geometrisch / eerdere bewoning",
+        "description": "Kasteli beheerst de ruglijn met uitzicht in alle richtingen en bewaart resten van Anafi's oude heuveltopnederzetting."
+      },
+      "4": {
+        "name": "Agios Mamas",
+        "period": "Klassieke tempel hergebruikt als kerk",
+        "description": "Bij Agios Mamas liggen resten van een ouder heiligdom onder de latere kerk, wat de route in Anafi's langlopende heilige landschap plaatst."
+      },
+      "5": {
+        "name": "Oude terrassen",
+        "period": "Oud agrarisch landschap",
+        "description": "Steen opgebouwde terrassen op de helling tonen langdurige teelt en landbeheer in de droge hooglanden van Anafi."
+      }
+    }
+  }
+}

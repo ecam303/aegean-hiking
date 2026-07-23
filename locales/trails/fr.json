@@ -1,0 +1,103 @@
+{
+  "ios": {
+    "properties": {
+      "trailName": "Les terrasses de Skarkos",
+      "summary": "Du port d'Ormos, le sentier pavé restauré monte vers Skarkos, la ville de l'âge du Bronze ancien la mieux conservée des Cyclades, puis vers le musée qui présente les découvertes du site.",
+      "difficulty": "Facile",
+      "estimatedTime": "2.5-3 h",
+      "basedOn": "Le tracé suit le chemin d'accès pavé existant vers le site archéologique de Skarkos. Vérifiez-le avec le réseau local 'Ios Paths' avant la randonnée.",
+      "note": "Les coordonnées sont des approximations de prototypage. Remplacez-les par une trace GPX relevée avant publication."
+    },
+    "waypoints": {
+      "1": {
+        "name": "Port d'Ormos",
+        "period": "Front de mer actuel",
+        "description": "Le parcours commence au port, point d'arrivée historiquement important pour l'île."
+      },
+      "2": {
+        "name": "Sentier vers Skarkos",
+        "period": "Restauration moderne du chemin",
+        "description": "Cette montée suit le sentier pavé restauré qui relie la côte aux hauteurs de Skarkos."
+      },
+      "3": {
+        "name": "Skarkos",
+        "period": "Âge du Bronze ancien",
+        "description": "Skarkos est l'un des établissements préhistoriques les plus importants et les mieux conservés des Cyclades."
+      },
+      "4": {
+        "name": "Musée archéologique d'Ios",
+        "period": "Présentation contemporaine",
+        "description": "Le musée expose des objets de Skarkos qui éclairent la vie quotidienne et les échanges à longue distance de l'époque."
+      }
+    }
+  },
+  "syros": {
+    "properties": {
+      "trailName": "Kastri et la cité des morts",
+      "summary": "Boucle reliant le sanctuaire catholique des Saints Anargyres, la source de jadéite, Chalandriani et le promontoire préhistorique fortifié de Kastri.",
+      "difficulty": "Modéré",
+      "estimatedTime": "2.5-3 h",
+      "basedOn": "La géométrie de la route provient de la boucle fournie dans Syros_Custom_route.KML et des coordonnées de Kastri, Chalandriani, de la jadéite et du sanctuaire catholique.",
+      "note": "Cette version utilise la boucle KML importée plutôt que l'ancienne ligne prototype, afin que la route Leaflet suive le circuit prévu de Kastri."
+    },
+    "waypoints": {
+      "1": {
+        "name": "Sanctuaire catholique des Saints Anargyres",
+        "period": "Chapelle historique",
+        "description": "La boucle commence au sanctuaire catholique des Saints Anargyres, un point haut qui domine les paysages d'Apano Meria."
+      },
+      "2": {
+        "name": "Jadéite",
+        "period": "Source préhistorique de matériau",
+        "description": "Cette étape marque la source de jadéite liée aux communautés de l'âge du Bronze ancien à Syros et à leurs réseaux d'échanges lointains."
+      },
+      "3": {
+        "name": "Chalandriani",
+        "period": "Cycladique ancien II (env. 2700-2200 av. J.-C.)",
+        "description": "Chalandriani est l'un des plus importants paysages funéraires du Cycladique ancien en mer Égée, étendu sur le plateau sous la crête."
+      },
+      "4": {
+        "name": "Kastri",
+        "period": "Cycladique ancien II-III, 'phase de Kastri' (env. 2400-2200 av. J.-C.)",
+        "description": "Kastri est l'établissement préhistorique fortifié du promontoire au-dessus de la mer, point archéologique majeur et final de la boucle."
+      }
+    }
+  },
+  "anafi": {
+    "properties": {
+      "trailName": "Traverse de la crête d'Anafi",
+      "summary": "Parcours de crête depuis Ronkounas Parking vers Kasteli, Agios Mamas et les pentes en terrasses d'Anafi, d'après le KML de route fourni.",
+      "difficulty": "Modéré",
+      "estimatedTime": "3.5-4 h",
+      "basedOn": "Le tracé est échantillonné depuis le fichier Anafi Custom_route KML fourni et associé à la liste de points d'arrêt.",
+      "note": "La ligne de route est une trace GeoJSON simplifiée dérivée du KML fourni, afin d'afficher proprement le parcours tout en suivant la trace importée."
+    },
+    "waypoints": {
+      "1": {
+        "name": "Ronkounas Parking",
+        "period": "Époque actuelle",
+        "description": "Le parcours débute au-dessus de la plage de Ronkounas, où un stationnement donne un accès direct au sentier de crête."
+      },
+      "2": {
+        "name": "Départ vers Kasteli",
+        "period": "Époque actuelle",
+        "description": "Cette première montée quitte la côte et progresse régulièrement vers les hauteurs autour de Kasteli."
+      },
+      "3": {
+        "name": "Kasteli",
+        "period": "Géométrique / occupation antérieure",
+        "description": "Kasteli domine la crête avec des vues dans toutes les directions et conserve les vestiges de l'ancien habitat de hauteur d'Anafi."
+      },
+      "4": {
+        "name": "Agios Mamas",
+        "period": "Temple classique réutilisé comme église",
+        "description": "À Agios Mamas, les vestiges d'un sanctuaire plus ancien subsistent sous l'église plus tardive, inscrivant la route dans le paysage sacré de longue durée d'Anafi."
+      },
+      "5": {
+        "name": "Terrasses antiques",
+        "period": "Paysage agricole ancien",
+        "description": "Les terrasses en pierre sur la pente témoignent d'une gestion durable des cultures et des terres dans les hauts plateaux arides d'Anafi."
+      }
+    }
+  }
+}

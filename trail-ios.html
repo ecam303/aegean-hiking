@@ -21,23 +21,34 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <ul class="nav-v3__links" id="navLinks">
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#trails">All Trails</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="index.html#about" data-i18n="common.nav.about">About</a></li>
+      <li><a href="index.html#trails" data-i18n="common.nav.allTrails">All Trails</a></li>
+      <li><a href="index.html#contact" data-i18n="common.nav.contact">Contact</a></li>
+      <li>
+        <label class="lang-switcher" for="languageSelectIos">
+          <span data-i18n="common.labels.language">Language</span>
+          <select id="languageSelectIos" class="lang-select" aria-label="Language">
+            <option value="en">English</option>
+            <option value="el">Eλληνικά</option>
+            <option value="fr">Français</option>
+            <option value="nl">Nederlands</option>
+          </select>
+        </label>
+      </li>
     </ul>
   </div>
 </nav>
 
 <div class="trail-hero-v3">
-  <p class="trail-hero-v3__kicker">Trail log</p>
+  <p class="trail-hero-v3__kicker" data-i18n="common.labels.trailLog">Trail log</p>
   <p id="trailIsland"></p>
   <h1 id="trailTitle">&nbsp;</h1>
   <p id="trailSummary"></p>
   <div class="fact-strip-v3">
-    <div><span class="fact-label">Distance</span><span class="fact-value" id="statDistance"></span></div>
-    <div><span class="fact-label">Elevation</span><span class="fact-value" id="statGain"></span></div>
-    <div><span class="fact-label">Est. time</span><span class="fact-value" id="statTime"></span></div>
-    <div><span class="fact-label">Difficulty</span><span class="fact-value" id="statDifficulty"></span></div>
+    <div><span class="fact-label" data-i18n="common.fact.distance">Distance</span><span class="fact-value" id="statDistance"></span></div>
+    <div><span class="fact-label" data-i18n="common.fact.elevation">Elevation</span><span class="fact-value" id="statGain"></span></div>
+    <div><span class="fact-label" data-i18n="common.fact.time">Est. time</span><span class="fact-value" id="statTime"></span></div>
+    <div><span class="fact-label" data-i18n="common.fact.difficulty">Difficulty</span><span class="fact-value" id="statDifficulty"></span></div>
   </div>
   <p class="trail-note-v3" id="trailNote"></p>
 </div>
@@ -45,12 +56,12 @@
 <div class="trail-grid">
   <aside class="trail-sidebar">
     <div class="trail-sidebar__intro">
-      <p class="trail-hero-v3__kicker">Start of the Trail</p>
-      <h2 class="trail-sidebar__headline">Ormos Harbour</h2>
-      <p class="trail-sidebar__copy">Begin at the island's main harbour, then follow the restored stone path up to the Bronze Age terraces of Skarkos. Use the quick waypoint menu to jump between stops and see each one on the map.</p>
+      <p class="trail-hero-v3__kicker" data-i18n="common.labels.startOfTrail">Start of the Trail</p>
+      <h2 class="trail-sidebar__headline" data-i18n="trail.sidebar.ios.headline">Ormos Harbour</h2>
+      <p class="trail-sidebar__copy" data-i18n="trail.sidebar.ios.copy">Begin at the island's main harbour, then follow the restored stone path up to the Bronze Age terraces of Skarkos. Use the quick waypoint menu to jump between stops and see each one on the map.</p>
     </div>
     <div class="waypoint-nav">
-      <span class="waypoint-nav__title">Waypoints</span>
+      <span class="waypoint-nav__title" data-i18n="common.labels.waypoints">Waypoints</span>
       <div id="waypointNav" class="waypoint-nav__list"></div>
     </div>
   </aside>
@@ -61,36 +72,37 @@
     </div>
 
     <div class="waypoint-detail">
-      <span class="waypoint-detail__label">Current waypoint</span>
+      <span class="waypoint-detail__label" data-i18n="common.labels.currentWaypoint">Current waypoint</span>
       <h2 id="detailTitle">Ormos Harbour</h2>
-      <p id="detailText">The beginning of the route sits at the harbour, where sheltered waters and fertile coastal plains once made this an attractive landing point for early Aegean sailors and farmers.</p>
+      <p id="detailText" data-i18n="trail.defaults.detailText">The beginning of the route sits at the harbour, where sheltered waters and fertile coastal plains once made this an attractive landing point for early Aegean sailors and farmers.</p>
 
       <div class="location-panel" id="locationPanel" aria-live="polite">
-        <div><strong>Location:</strong> <span id="locationStatus">Waiting for GPS…</span></div>
-        <div><strong>Next:</strong> <span id="nextWaypointName">Skarkos</span></div>
-        <div><strong>Distance:</strong> <span id="distanceToNext">—</span></div>
+        <div><strong data-i18n="common.labels.location">Location:</strong> <span id="locationStatus" data-i18n="common.labels.waitingGps">Waiting for GPS…</span></div>
+        <div><strong data-i18n="common.labels.next">Next:</strong> <span id="nextWaypointName">Skarkos</span></div>
+        <div><strong data-i18n="common.labels.distance">Distance:</strong> <span id="distanceToNext">—</span></div>
       </div>
 
       <div class="gallery-wrap">
         <div class="gallery__track" id="galleryTrack"></div>
-        <button class="gallery__nav gallery__nav--prev" id="galleryPrev" type="button" aria-label="Previous image">&larr;</button>
-        <button class="gallery__nav gallery__nav--next" id="galleryNext" type="button" aria-label="Next image">&rarr;</button>
+        <button class="gallery__nav gallery__nav--prev" id="galleryPrev" type="button" aria-label="Previous image" data-i18n-aria-label="common.gallery.prevImage">&larr;</button>
+        <button class="gallery__nav gallery__nav--next" id="galleryNext" type="button" aria-label="Next image" data-i18n-aria-label="common.gallery.nextImage">&rarr;</button>
       </div>
     </div>
   </section>
 </div>
 
 <div class="back-link-v3">
-  <a href="index.html#trails" class="btn-outline" style="border-color:var(--wine); color:var(--wine);">&larr; Back to all trails</a>
+  <a href="index.html#trails" class="btn-outline" style="border-color:var(--wine); color:var(--wine);" data-i18n="common.buttons.backToTrails">&larr; Back to all trails</a>
 </div>
 
 <footer class="footer-v3">
-  <p>Trail coordinates are approximate prototypes. Built with <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a> and <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>.</p>
+  <p><span data-i18n="trail.footer.prefix">Trail coordinates are approximate prototypes.</span> <span data-i18n="trail.footer.builtWith">Built with</span> <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a> <span data-i18n="trail.footer.and">and</span> <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>.</p>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="js/icons.js"></script>
 <script src="js/image-attribs.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/trail-page.js"></script>
 </body>
 </html>

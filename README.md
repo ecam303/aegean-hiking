@@ -45,6 +45,27 @@ coordinates are approximate placeholders for prototyping &mdash; see
 
 No API keys, no accounts, no paid services are required to run or host this.
 
+## Translation workflow (pre-generated)
+
+The site now supports four UI languages with a header switcher:
+
+- English (`en`, default)
+- Greek (`el`)
+- French (`fr`)
+- Dutch (`nl`)
+
+Translations are file-based (no runtime AI calls), so language switches are instant.
+
+- Static UI copy lives in `locales/en.json`, `locales/el.json`, `locales/fr.json`, `locales/nl.json`.
+- Trail metadata + waypoint copy lives in `locales/trails/el.json`, `locales/trails/fr.json`, `locales/trails/nl.json`.
+- English trail content remains the source of truth in each `data/*.geojson` file.
+
+When you change English text:
+
+1. Update the English source (`data/*.geojson` for trail/waypoints, and/or `locales/en.json` for shared UI copy).
+2. Regenerate or update the non-English locale files with your AI translation workflow.
+3. Keep the same keys (`properties` names and waypoint `order` mappings) so the translator can merge reliably.
+
 ## Project structure
 
 ```

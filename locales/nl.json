@@ -1,0 +1,124 @@
+{
+  "common": {
+    "nav": {
+      "about": "Over",
+      "trails": "Routes",
+      "allTrails": "Alle routes",
+      "contact": "Contact"
+    },
+    "labels": {
+      "language": "Taal",
+      "trailLog": "Route-logboek",
+      "startOfTrail": "Start van de route",
+      "waypoints": "Waypoints",
+      "currentWaypoint": "Huidig waypoint",
+      "location": "Locatie:",
+      "next": "Volgende:",
+      "distance": "Afstand:",
+      "waitingGps": "Wachten op GPS...",
+      "unknown": "Onbekend",
+      "gpsUnavailable": "Geolocatie niet beschikbaar"
+    },
+    "fact": {
+      "distance": "Afstand",
+      "elevation": "Hoogteverschil",
+      "time": "Geschatte tijd",
+      "difficulty": "Moeilijkheid"
+    },
+    "buttons": {
+      "viewTrail": "Bekijk route",
+      "backToTrails": "<- Terug naar alle routes"
+    },
+    "gallery": {
+      "prevImage": "Vorige afbeelding",
+      "nextImage": "Volgende afbeelding",
+      "view": "zicht",
+      "detail": "detail",
+      "context": "context"
+    },
+    "units": {
+      "kilometers": "km",
+      "meters": "m"
+    },
+    "words": {
+      "trail": "Route"
+    },
+    "errors": {
+      "gpsErrorPrefix": "GPS-fout:"
+    }
+  },
+  "index": {
+    "hero": {
+      "title": "Geo-Archaeo Hiking",
+      "subtitle": "Verken de Egeïsche eilanden en verbind natuur met geschiedenis",
+      "cta": "Bekijk routes"
+    },
+    "about": {
+      "title": "Over het project",
+      "intro": "Dit platform biedt itineraries voor drie geo-archeologische wandelroutes. Elke route vertelt een deel van de eilandgeschiedenis en verbindt unieke geologische zones met bekende archeologische sites.",
+      "card1": {
+        "title": "Archeologische sites en geologische kenmerken",
+        "text": "Tijdelijke tekst over dit onderdeel van het project. Vervang met echte inhoud over onderzoek, routes of methodologie."
+      },
+      "card2": {
+        "title": "De eilanden verkennen",
+        "text": "Bezoek de eilanden niet alleen - wandel door hun rijke geschiedenis en unieke geologische formaties om ze echt te begrijpen."
+      },
+      "card3": {
+        "title": "Onze impact",
+        "text": "Door samen met lokale gemeenschappen verhalen over landschap en erfgoed te ontwikkelen, wil het project beïnvloeden hoe we met onze omgeving omgaan en inzicht geven in de directe impact van ons handelen - onze bezoeken zijn tijdelijk, maar onze effecten op milieu en landschap kunnen blijvend zijn."
+      }
+    },
+    "trails": {
+      "title": "Routes en verhalen",
+      "intro": "Drie geo-archeologische wandelroutes, elk met een wandeling die landschap en geschiedenis met elkaar verbindt.",
+      "anafi": {
+        "badge": "Gemiddeld",
+        "time": "1.5-2 uur",
+        "desc": "Tijdelijke tekst - korte beschrijving van de Anafi-route, het traject en de bezienswaardigheden."
+      },
+      "ios": {
+        "badge": "Makkelijk",
+        "time": "1-1.5 uur",
+        "desc": "Tijdelijke tekst - korte beschrijving van de Ios-route, het traject en de bezienswaardigheden."
+      },
+      "syros": {
+        "badge": "Gemiddeld",
+        "time": "2-2.5 uur",
+        "desc": "Tijdelijke tekst - korte beschrijving van de Syros-route, het traject en de bezienswaardigheden."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "funding": "Gefinancierd door de FNRS-FRESH PhD Grant."
+    },
+    "footer": {
+      "prefix": "Copyright 2026 Geo-Archaeo Hiking. Open-source veldprototype voor PhD.",
+      "builtWith": "Gebouwd met"
+    }
+  },
+  "trail": {
+    "sidebar": {
+      "ios": {
+        "headline": "Haven van Ormos",
+        "copy": "Start bij de hoofdhaven van het eiland en volg daarna het gerestaureerde stenen pad naar de bronstijdterrassen van Skarkos. Gebruik het waypointmenu om snel tussen stops te springen en ze op de kaart te zien."
+      },
+      "syros": {
+        "headline": "Startpunt Syros",
+        "copy": "Begin bij het kuststartpunt van het eiland en volg de historische route over de ruglijn. Gebruik het waypointmenu om tussen stops te navigeren en contextbeelden te bekijken."
+      },
+      "anafi": {
+        "headline": "Startpunt Anafi",
+        "copy": "Begin bij het kuststartpunt en volg het rugpad richting de bronstijdterrassen. Gebruik het waypointmenu om de route stap voor stap te volgen."
+      }
+    },
+    "defaults": {
+      "detailText": "Tijdelijke beschrijving voor het geselecteerde waypoint."
+    },
+    "footer": {
+      "prefix": "Routecoördinaten zijn benaderende prototypes.",
+      "builtWith": "Gebouwd met",
+      "and": "en"
+    }
+  }
+}

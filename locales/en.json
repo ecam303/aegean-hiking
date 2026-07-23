@@ -1,0 +1,124 @@
+{
+  "common": {
+    "nav": {
+      "about": "About",
+      "trails": "Trails",
+      "allTrails": "All Trails",
+      "contact": "Contact"
+    },
+    "labels": {
+      "language": "Language",
+      "trailLog": "Trail log",
+      "startOfTrail": "Start of the Trail",
+      "waypoints": "Waypoints",
+      "currentWaypoint": "Current waypoint",
+      "location": "Location:",
+      "next": "Next:",
+      "distance": "Distance:",
+      "waitingGps": "Waiting for GPS...",
+      "unknown": "Unknown",
+      "gpsUnavailable": "Geolocation unavailable"
+    },
+    "fact": {
+      "distance": "Distance",
+      "elevation": "Elevation",
+      "time": "Est. time",
+      "difficulty": "Difficulty"
+    },
+    "buttons": {
+      "viewTrail": "View Trail",
+      "backToTrails": "<- Back to all trails"
+    },
+    "gallery": {
+      "prevImage": "Previous image",
+      "nextImage": "Next image",
+      "view": "view",
+      "detail": "detail",
+      "context": "context"
+    },
+    "units": {
+      "kilometers": "km",
+      "meters": "m"
+    },
+    "words": {
+      "trail": "Trail"
+    },
+    "errors": {
+      "gpsErrorPrefix": "GPS error:"
+    }
+  },
+  "index": {
+    "hero": {
+      "title": "Geo-Archaeo Hiking",
+      "subtitle": "Explore the Aegean islands and connect with nature and history",
+      "cta": "View Trails"
+    },
+    "about": {
+      "title": "About the Project",
+      "intro": "This is a platform hosting itineraries for three geo-archaeo hiking trails, with each trail telling part of the island's history, linking unique geological areas and known archaeological sites.",
+      "card1": {
+        "title": "Archaeological Sites & Geological Features",
+        "text": "Placeholder text describing this aspect of the project. Replace with real copy about the research, the trails, or the methodology."
+      },
+      "card2": {
+        "title": "Exploring the Islands",
+        "text": "Don't just visit the islands - walk your way through their rich history and unique geological formations and understand them."
+      },
+      "card3": {
+        "title": "Our Impact",
+        "text": "By creating narratives of landscapes and heritage sites with the communities in the archipelago, the project aims to influence the way we engage with our surroundings and to gain an understanding of the direct impact that our actions have - that while our visits are temporary, our actions on the environment and in the landscape can be permanent."
+      }
+    },
+    "trails": {
+      "title": "Trails and Stories",
+      "intro": "Three geo-archaeological hiking trails, each pairing a walking route with the landscape and history along it.",
+      "anafi": {
+        "badge": "Moderate",
+        "time": "1.5-2 hrs",
+        "desc": "Placeholder text - a short description of the Anafi trail, its route and its points of interest goes here."
+      },
+      "ios": {
+        "badge": "Easy",
+        "time": "1-1.5 hrs",
+        "desc": "Placeholder text - a short description of the Ios trail, its route and its points of interest goes here."
+      },
+      "syros": {
+        "badge": "Moderate",
+        "time": "2-2.5 hrs",
+        "desc": "Placeholder text - a short description of the Syros trail, its route and its points of interest goes here."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "funding": "Funded by the FNRS-FRESH PhD Grant."
+    },
+    "footer": {
+      "prefix": "Copyright 2026 Geo-Archaeo Hiking. Open-source PhD field prototype.",
+      "builtWith": "Built with"
+    }
+  },
+  "trail": {
+    "sidebar": {
+      "ios": {
+        "headline": "Ormos Harbour",
+        "copy": "Begin at the island's main harbour, then follow the restored stone path up to the Bronze Age terraces of Skarkos. Use the quick waypoint menu to jump between stops and see each one on the map."
+      },
+      "syros": {
+        "headline": "Syros Trailhead",
+        "copy": "Begin at the island's coastal trailhead and follow the historic ridge route. Use the waypoint menu to move between stops and see contextual images."
+      },
+      "anafi": {
+        "headline": "Anafi Trailhead",
+        "copy": "Begin at the coastal trailhead and follow the ridge path toward the Bronze Age terraces. Use the waypoint menu to step through the route and review each stop."
+      }
+    },
+    "defaults": {
+      "detailText": "Placeholder description for the selected waypoint."
+    },
+    "footer": {
+      "prefix": "Trail coordinates are approximate prototypes.",
+      "builtWith": "Built with",
+      "and": "and"
+    }
+  }
+}
